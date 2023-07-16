@@ -1,0 +1,25 @@
+$font-base: 16px; // Base font size in pixels
+$tablet: 700px;
+$desktop: 1110px;
+$large-screen: 1400px;
+
+// Tablet media query (769px to 1024px)
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+// Desktop media query (1025px to 1366px)
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// Large screen media query (1367px and above)
+@mixin large-screen {
+  @media (min-width: $large-screen) {
+    @content;
+  }
+}

@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+.flex {
+  display: flex;
+}
+.flex_column {
+  flex-direction: column;
+}
+.flex_row {
+  flex-direction: row;
+}
+.flex_center {
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100%;
+  max-width: calc(100% - 3rem);
+  margin-inline: auto;
+  border: solid 2px red;
+}
+@media (min-width: 700px) {
+  .container {
+    max-width: calc(100% - 10rem);
+  }
+}
+@media (min-width: 1110px) {
+  .container {
+    max-width: calc(100% - 25rem);
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: calc(100% - 35rem);
+  }
+}
+
+/*# sourceMappingURL=test.css.map */
