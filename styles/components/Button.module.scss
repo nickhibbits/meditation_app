@@ -1,0 +1,8 @@
+@use "@/styles/variables.scss";
+
+.button_component {
+  border: solid 1px variables.$color-neutral-900;
+  padding: variables.$padding-1 variables.$padding-2;
+  border-radius: variables.$br-1;
+  font-size: variables.$fs-400;
+}
