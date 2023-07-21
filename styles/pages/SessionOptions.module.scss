@@ -1,0 +1,11 @@
+$selector-height: 12rem;
+
+.options_wrapper {
+  .selector_component {
+    margin: 5rem;
+    border: solid 2px black;
+    width: $selector-height;
+    height: $selector-height;
+    border-radius: 50%;
+  }
+}
