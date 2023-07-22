@@ -1,4 +1,4 @@
-$selector-height: 12rem;
+$selector-height: 25rem;
 
 .options_wrapper {
   .selector_component {
@@ -7,5 +7,74 @@ $selector-height: 12rem;
     width: $selector-height;
     height: $selector-height;
     border-radius: 50%;
+    position: relative;
+  }
+
+  .options_wrapper {
+    // border: solid 2px red;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // width: 50%;
+    // height: 50%;
+    // // margin: calc($selector-height / 2) 0px 0px calc($selector-height / 2);
+    // // margin: calc($selector-height / 2);
+    // border-radius: 50%;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      display: block;
+      left: 50%;
+      top: -5em;
+      background: yellow;
+      /**
+         * The pseudo-element is a semi-circle
+         * created with CSS. Top, bottom, and right
+         * borders are 6.5em (left being 0), and then
+         * a border-radius is added to the two corners
+         * on the right.
+         */
+      border-width: 6.5em;
+      border-radius: 0 7.5em 7.5em 0;
+      border-left: 0;
+      border-style: solid;
+      /**
+         * Have to have a border color for the border
+         * to be hoverable. I'm using a very light one
+         * so that it looks invisible.
+         */
+      border-color: rgba(0, 0, 0, 0.01);
+      /**
+         * Put the psuedo-element behind the links
+         * (So they can be clicked on)
+         */
+      z-index: -1;
+      /**
+         * Make the cursor default so it looks like
+         * nothing is there
+         */
+      cursor: default;
+    }
+
+    & li:nth-of-type(1) {
+      transform: rotate(-90deg);
+      position: absolute;
+      left: -1.2em;
+      top: -4.2em;
+    }
+    & li:nth-of-type(2) {
+      transform: rotate(-45deg);
+      position: absolute;
+      left: 2em;
+      top: -3em;
+    }
+    & li:nth-of-type(3) {
+      position: absolute;
+      left: 3.4em;
+      top: 0.3em;
+    }
   }
 }
