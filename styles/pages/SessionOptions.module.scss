@@ -1,72 +1,56 @@
 $selector-height: 25rem;
+$option-width: 18rem;
 
-.options_wrapper {
-  .selector_component {
-    margin: 5rem;
-    border: solid 2px black;
-    width: $selector-height;
-    height: $selector-height;
-    border-radius: 50%;
+.selector_component {
+  margin: 5rem;
+  border: solid 2px black;
+  width: $selector-height;
+  height: $selector-height;
+  border-radius: 50%;
+  position: relative;
+
+  &:first-of-type {
+    transform: rotate(25deg);
   }
 
-  .options_wrapper {
-    border: solid 2px red;
-    position: relative;
+  .middle_circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 30%;
+    border-radius: 50%;
+    border: solid 2px black;
+    // line-height: 0;
+  }
 
-    // // &::before {
-    // //   position: absolute;
-    // //   content: "";
-    // //   width: 0;
-    // //   height: 0;
-    // //   display: block;
-    // //   left: 50%;
-    // //   top: -5em;
-    // //   background: yellow;
-    // //   /**
-    // //      * The pseudo-element is a semi-circle
-    // //      * created with CSS. Top, bottom, and right
-    // //      * borders are 6.5em (left being 0), and then
-    // //      * a border-radius is added to the two corners
-    // //      * on the right.
-    // //      */
-    // //   border-width: 6.5em;
-    // //   border-radius: 0 7.5em 7.5em 0;
-    // //   border-left: 0;
-    // //   border-style: solid;
-    // //   /**
-    // //      * Have to have a border color for the border
-    // //      * to be hoverable. I'm using a very light one
-    // //      * so that it looks invisible.
-    // //      */
-    // //   border-color: rgba(0, 0, 0, 0.01);
-    // //   /**
-    // //      * Put the psuedo-element behind the links
-    // //      * (So they can be clicked on)
-    // //      */
-    // //   z-index: -1;
-    // //   /**
-    // //      * Make the cursor default so it looks like
-    // //      * nothing is there
-    // //      */
-    // //   cursor: default;
-    // // }
-
-    & li:nth-of-type(1) {
-      transform: rotate(-90deg);
-      position: absolute;
-      left: -1.2em;
-      top: -4.2em;
-    }
-    & li:nth-of-type(2) {
-      transform: rotate(-45deg);
-      position: absolute;
-      left: 2em;
-      top: -3em;
-    }
-    & li:nth-of-type(3) {
-      position: absolute;
-      left: 3.4em;
-      top: 0.3em;
-    }
+  .option:nth-of-type(1) {
+    display: flex;
+    justify-content: flex-end;
+    transform: rotate(-50deg);
+    position: absolute;
+    // border-bottom: solid 1px black;
+    width: $option-width;
+    top: 11.15rem;
+    right: 3.6rem;
+  }
+  .option:nth-of-type(2) {
+    display: flex;
+    justify-content: flex-end;
+    transform: rotate(-25deg);
+    position: absolute;
+    // border-bottom: solid 1px black;
+    width: calc($option-width + 1.5rem);
+    top: 10.9rem;
+    right: 2.1rem;
+  }
+  .option:nth-of-type(3) {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    // border-bottom: solid 1px black;
+    width: $option-width;
+    top: 11.2rem;
+    right: 3.55rem;
   }
 }
