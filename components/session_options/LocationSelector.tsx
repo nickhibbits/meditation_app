@@ -1,14 +1,18 @@
 import styles from "@/styles/pages/SessionOptions.module.scss";
 
+const options = ["Ocean", "Mountains", "Jungle"];
+
 function LocationSelector() {
   return (
-    <div className={`flex flex_center ${styles.selector_component}`}>
-      {/* <div className={styles.middle_circle}> o </div> */}
-      <div className={styles.middle_circle} />
-      <li className={styles.option}>Ocean</li>
-      <li className={styles.option}>Mountains</li>
-      <li className={styles.option}>Jungle</li>
-    </div>
+    <>
+      {options.map((option, i) => {
+        return (
+          <li className={styles.option} key={i}>
+            {option}
+          </li>
+        );
+      })}
+    </>
   );
 }
 

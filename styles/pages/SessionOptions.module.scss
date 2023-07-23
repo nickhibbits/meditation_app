@@ -3,22 +3,26 @@ $option-width: 18rem;
 
 .selector_component {
   margin: 5rem;
-  border: solid 2px black;
   width: $selector-height;
   height: $selector-height;
-  border-radius: 50%;
+  // border-radius: 50%;
   position: relative;
 
-  &:first-of-type {
+  &:nth-of-type(1) {
     transform: rotate(25deg);
+  }
+
+  &:nth-of-type(2) {
+    justify-content: center;
+    align-items: center;
   }
 
   .middle_circle {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30%;
-    width: 30%;
+    height: 35%;
+    width: 35%;
     border-radius: 50%;
     border: solid 2px black;
     // line-height: 0;
