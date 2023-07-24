@@ -1,5 +1,5 @@
 $selector-height: 9rem;
-$option-width: 18rem;
+$option-width: 11rem;
 
 .options_wrapper {
   width: 90%;
@@ -8,15 +8,6 @@ $option-width: 18rem;
 
 .session_option_component {
   margin: 2rem;
-
-  &:nth-of-type(1) {
-    transform: rotate(25deg);
-  }
-
-  &:nth-of-type(2) {
-    justify-content: center;
-    align-items: center;
-  }
 
   .middle_circle {
     display: flex;
@@ -28,35 +19,40 @@ $option-width: 18rem;
     border: solid 2px black;
   }
 
-  .option:nth-of-type(1) {
-    display: flex;
-    justify-content: flex-end;
-    transform: rotate(-50deg);
-    position: absolute;
-    border-bottom: solid 1px black;
-    width: $option-width;
-    top: 11.15rem;
-    right: 3.6rem;
-  }
+  .location_selector_wrapper {
+    position: relative;
+    transform: rotate(25deg);
 
-  .option:nth-of-type(2) {
-    display: flex;
-    justify-content: flex-end;
-    transform: rotate(-25deg);
-    position: absolute;
-    border-bottom: solid 1px black;
-    width: calc($option-width + 1.5rem);
-    top: 10.9rem;
-    right: 2.1rem;
-  }
+    .option:nth-of-type(1) {
+      display: flex;
+      justify-content: flex-end;
+      transform: rotate(-50deg);
+      position: absolute;
+      border-bottom: solid 1px black;
+      width: $option-width;
+      top: -0.68rem;
+      right: -4.06rem;
+    }
 
-  .option:nth-of-type(3) {
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    border-bottom: solid 1px black;
-    width: $option-width;
-    top: 11.2rem;
-    right: 3.55rem;
+    .option:nth-of-type(2) {
+      display: flex;
+      justify-content: flex-end;
+      transform: rotate(-25deg);
+      position: absolute;
+      border-bottom: solid 1px black;
+      width: calc($option-width + 1.5rem);
+      top: 0.76rem;
+      right: -7.15rem;
+    }
+
+    .option:nth-of-type(3) {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      border-bottom: solid 1px black;
+      width: $option-width;
+      top: 3.35rem;
+      right: -6.5rem;
+    }
   }
 }
