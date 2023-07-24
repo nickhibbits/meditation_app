@@ -18,6 +18,16 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+
+  &:hover {
+    color: rgb(133, 133, 133);
+  }
+}
+
 .flex {
   display: flex;
 
