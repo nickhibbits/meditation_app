@@ -1,12 +1,13 @@
-$selector-height: 25rem;
+$selector-height: 9rem;
 $option-width: 18rem;
 
-.selector_component {
-  margin: 5rem;
-  width: $selector-height;
-  height: $selector-height;
-  // border-radius: 50%;
-  position: relative;
+.options_wrapper {
+  width: 90%;
+  justify-content: space-between;
+}
+
+.session_option_component {
+  margin: 2rem;
 
   &:nth-of-type(1) {
     transform: rotate(25deg);
@@ -21,11 +22,10 @@ $option-width: 18rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35%;
-    width: 35%;
+    height: $selector-height;
+    width: $selector-height;
     border-radius: 50%;
     border: solid 2px black;
-    // line-height: 0;
   }
 
   .option:nth-of-type(1) {
@@ -33,26 +33,28 @@ $option-width: 18rem;
     justify-content: flex-end;
     transform: rotate(-50deg);
     position: absolute;
-    // border-bottom: solid 1px black;
+    border-bottom: solid 1px black;
     width: $option-width;
     top: 11.15rem;
     right: 3.6rem;
   }
+
   .option:nth-of-type(2) {
     display: flex;
     justify-content: flex-end;
     transform: rotate(-25deg);
     position: absolute;
-    // border-bottom: solid 1px black;
+    border-bottom: solid 1px black;
     width: calc($option-width + 1.5rem);
     top: 10.9rem;
     right: 2.1rem;
   }
+
   .option:nth-of-type(3) {
     display: flex;
     justify-content: flex-end;
     position: absolute;
-    // border-bottom: solid 1px black;
+    border-bottom: solid 1px black;
     width: $option-width;
     top: 11.2rem;
     right: 3.55rem;

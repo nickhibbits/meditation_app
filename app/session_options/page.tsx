@@ -6,9 +6,14 @@ const sessionOptions = ["Location", "Duration"];
 function SessionOptions() {
   return (
     <main className="container flex flex_center">
-      <div className={`flex flex_row ${styles.options_wrapper}`}>
+      <div className={`flex ${styles.options_wrapper}`}>
         {sessionOptions.map((sessionOption, i) => {
-          return <SessionOption title={sessionOption} key={i} />;
+          return (
+            <div className={`flex ${styles.session_option_wrapper}`}>
+              <h1>{sessionOption}</h1>
+              <SessionOption title={sessionOption} key={i} />
+            </div>
+          );
         })}
       </div>
     </main>
