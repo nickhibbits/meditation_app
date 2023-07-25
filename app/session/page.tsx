@@ -1,14 +1,14 @@
 "use client";
 
-import Timer from "@/components/Timer";
 import { useSearchParams } from "next/navigation";
+
+import Timer from "@/components/Timer";
+import Button from "@/components/Button";
 
 function Session() {
   const params = useSearchParams();
   const duration = params.get("duration");
   const location = params.get("locastion");
-
-  console.log({ location, duration });
 
   const _duration = typeof duration === "string" ? Number(duration) : 0;
 
@@ -20,6 +20,7 @@ function Session() {
   return (
     <main className="container flex flex_column flex_center">
       <Timer expiryTimestamp={expiryTimestamp} />
+      <Button url="/" text="Exit" justifyContent="center" />
     </main>
   );
 }
