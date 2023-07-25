@@ -5,17 +5,30 @@ function Button({
   url,
   text,
   justifyContent,
+  onClick,
 }: {
   url: string;
   text: string;
   justifyContent: string;
+  onClick: any;
 }) {
   return (
     <div
       className={`flex ${styles.button_component}`}
       style={{ justifyContent: `${justifyContent}` }}
     >
-      <Link href={url}>{text}</Link>
+      {url ? (
+        <Link className={`flex flex_center ${styles.button}`} href={url}>
+          {text}
+        </Link>
+      ) : (
+        <button
+          className={`flex flex_center ${styles.button}`}
+          onClick={onClick}
+        >
+          {text}
+        </button>
+      )}
     </div>
   );
 }

@@ -3,12 +3,21 @@
 .button_component {
   width: 100%;
 
-  a {
+  a,
+  .button {
     border: solid 1px variables.$color-neutral-900;
     padding: variables.$padding-1 variables.$padding-2;
     border-radius: variables.$br-1;
     font-size: variables.$fs-400;
     color: variables.$color-neutral-900;
     text-decoration: none;
+    min-width: 10rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      cursor: pointer;
+    }
   }
 }

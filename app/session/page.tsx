@@ -20,7 +20,7 @@ function Session() {
   return (
     <main className="container flex flex_column flex_center">
       <Timer expiryTimestamp={expiryTimestamp} />
-      <Button url="/" text="Exit" justifyContent="center" />
+      <Button url="/" text="Exit" justifyContent="center" onClick={null} />
     </main>
   );
 }

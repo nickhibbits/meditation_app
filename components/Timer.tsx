@@ -1,4 +1,6 @@
+import Button from "@/components/Button";
 import { useTimer } from "react-timer-hook";
+import styles from "@/styles/components/Timer.module.scss";
 
 function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
   const { seconds, minutes, isRunning, start, pause, resume } = useTimer({
@@ -9,12 +11,20 @@ function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
   return (
     <div style={{ textAlign: "center" }}>
       <div style={{ fontSize: "100px" }}>
-        <span>{minutes}</span>:<span>{seconds}</span>
+        <span>{minutes < 1 ? null : minutes}</span>:
+        <span>{seconds < 10 ? `0${seconds}` : seconds}</span>
       </div>
       <p>{isRunning ? "In session" : "Paused"}</p>
-      <button onClick={start}>Start</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
+      <div className={`flex ${styles.buttons_wrapper}`}>
+        <Button text="Start" url={""} onClick={start} justifyContent="center" />
+        <Button text="Pause" url={""} onClick={pause} justifyContent="center" />
+        <Button
+          text="Resume"
+          url={""}
+          onClick={resume}
+          justifyContent="center"
+        />
+      </div>
     </div>
   );
 }
