@@ -17,7 +17,7 @@ function Options({
     <div className={`flex ${styles.options_wrapper}`}>
       {sessionOptions.map((sessionOption, i) => {
         return (
-          <div className={`flex ${styles.session_option_wrapper}`}>
+          <div className={`flex ${styles.session_option_wrapper}`} key={i}>
             <h1>{sessionOption}</h1>
             <SessionOption
               updateDuration={updateDuration}

@@ -7,6 +7,7 @@ export default function Home() {
         text={"Start Session"}
         url={"/session_options"}
         justifyContent="center"
+        onClick={null}
       />
     </main>
   );

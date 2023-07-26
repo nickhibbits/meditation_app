@@ -22,11 +22,17 @@ function SessionOptions() {
     >
       <Options updateDuration={updateDuration} updateLocation={setLocation} />
       <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
-        <Button url="/" text="Back" justifyContent="flex-start" />
+        <Button
+          url="/"
+          text="Back"
+          justifyContent="flex-start"
+          onClick={null}
+        />
         <Button
           url={`/session?duration=${duration}&location=${location}`}
           text="Start"
           justifyContent="flex-end"
+          onClick={null}
         />
       </div>
     </main>
