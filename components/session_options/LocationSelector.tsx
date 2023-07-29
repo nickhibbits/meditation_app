@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import styles from "@/styles/pages/SessionOptions.module.scss";
 import { enterAnimation } from "@/constants/animations";
+
+import styles from "@/styles/pages/SessionOptions.module.scss";
 
 const options = ["Ocean", "Mountains", "Jungle"];
 

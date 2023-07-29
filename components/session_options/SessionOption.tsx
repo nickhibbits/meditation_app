@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import { enterAnimation, spinAnimation } from "@/constants/animations";
 
 import DurationSelector from "@/components/session_options/DurationSelector";
 import LocationSelector from "@/components/session_options/LocationSelector";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
-import { enterAnimation, spinAnimation } from "@/constants/animations";
 
 function SessionOption({
   title,

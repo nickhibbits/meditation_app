@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { enterAnimation } from "@/constants/animations";
 
-import styles from "@/styles/components/Button.module.scss";
 import Link from "next/link";
+
+import styles from "@/styles/components/Button.module.scss";
 
 function Button({
   url,
