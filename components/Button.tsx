@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import styles from "@/styles/components/Button.module.scss";
 import Link from "next/link";
+import { enterAnimation } from "@/constants/animations";
 
 function Button({
   url,
@@ -20,8 +21,8 @@ function Button({
     <motion.div
       className={`flex ${styles.button_component}`}
       style={{ justifyContent: `${justifyContent}` }}
-      animate={{ y: [35, 0], opacity: [0, 1] }}
-      transition={{ ease: "easeInOut", duration: 0.6 }}
+      animate={enterAnimation.animate}
+      transition={enterAnimation.transition}
     >
       {url ? (
         <Link className={`flex flex_center ${styles.button}`} href={url}>
