@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import styles from "@/styles/pages/SessionOptions.module.scss";
+import { enterAnimation } from "@/constants/animations";
 
 const options = ["Ocean", "Mountains", "Jungle"];
 
@@ -7,9 +9,15 @@ function LocationSelector({ update }: { update: (value: string) => void }) {
     <>
       {options.map((option, i) => {
         return (
-          <li className={styles.option} key={i} onClick={(e) => update(option)}>
+          <motion.li
+            animate={{ width: [50, i === 1 ? 201 : 179] }}
+            transition={enterAnimation.transition}
+            className={styles.option}
+            key={i}
+            onClick={(e) => update(option)}
+          >
             {option}
-          </li>
+          </motion.li>
         );
       })}
     </>
