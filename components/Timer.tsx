@@ -1,5 +1,7 @@
-import Button from "@/components/Button";
 import { useTimer } from "react-timer-hook";
+
+import Button from "@/components/Button";
+
 import styles from "@/styles/components/Timer.module.scss";
 
 function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {

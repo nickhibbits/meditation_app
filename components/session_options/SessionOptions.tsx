@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import Button from "@/components/Button";
 import Options from "@/components/Options";
+import Background from "@/components/Background";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
-import Background from "@/components/Background";
 
 function SessionOptions() {
   const [duration, setDuration] = useState("1");

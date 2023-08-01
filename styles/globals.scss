@@ -1,4 +1,5 @@
 @use "@/styles/mixins/mediaQueries.scss";
+@use "@/styles/variables";
 
 // simple reset
 *,
@@ -27,6 +28,10 @@ button {
   text-decoration: none;
   color: inherit;
   background-color: inherit;
+}
+
+h1 {
+  font-size: variables.$fs-500;
 }
 
 .flex {
