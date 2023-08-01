@@ -2,6 +2,7 @@ $selector-height: 9rem;
 $option-width: 11rem;
 
 .options_wrapper {
+  z-index: 1;
   width: 90%;
   justify-content: space-between;
 }

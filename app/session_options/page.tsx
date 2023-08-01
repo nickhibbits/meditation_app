@@ -1,3 +1,4 @@
+import Background from "@/components/Background";
 import SessionOptions from "@/components/session_options/SessionOptions";
 
 function SessionOptionsPage() {

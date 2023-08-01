@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import Options from "@/components/Options";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
+import Background from "@/components/Background";
 
 function SessionOptions() {
   const [duration, setDuration] = useState("1");
@@ -20,21 +21,23 @@ function SessionOptions() {
       className="container flex flex_center flex_column"
       style={{ position: "relative" }}
     >
-      <Options updateDuration={updateDuration} updateLocation={setLocation} />
-      <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
-        <Button
-          url="/"
-          text="Back"
-          justifyContent="flex-start"
-          onClick={null}
-        />
-        <Button
-          url={`/session?duration=${duration}&location=${location}`}
-          text="Start"
-          justifyContent="flex-end"
-          onClick={null}
-        />
-      </div>
+      <Background imgSrc="blob">
+        <Options updateDuration={updateDuration} updateLocation={setLocation} />
+        <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
+          <Button
+            url="/"
+            text="Back"
+            justifyContent="flex-start"
+            onClick={null}
+          />
+          <Button
+            url={`/session?duration=${duration}&location=${location}`}
+            text="Start"
+            justifyContent="flex-end"
+            onClick={null}
+          />
+        </div>
+      </Background>
     </main>
   );
 }
