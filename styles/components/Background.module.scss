@@ -4,16 +4,16 @@
     top: 3rem;
     right: 24rem;
     transform: rotate(-150deg);
-    filter: blur(3rem);
+    filter: blur(2.8rem);
     transition: all 5s;
   }
 
   &_2 {
     position: absolute;
     top: 15rem;
-    left: 30rem;
-    transform: rotate(-45deg);
-    filter: blur(3rem);
+    left: 25rem;
+    transform: rotate(50deg);
+    filter: blur(2.8rem);
     transition: all 5s;
   }
 
@@ -22,7 +22,7 @@
     top: -3rem;
     right: 5rem;
     transform: rotate(-45deg);
-    filter: blur(3rem);
+    filter: blur(2.8rem);
     transition: all 5s;
   }
 }
