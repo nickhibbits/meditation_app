@@ -36,7 +36,7 @@ function Background({
           />
         </>
       ) : (
-        <div className={styles.background_image} data-image={imgSrc} />
+        <div className={styles.background_image} />
       )}
       {children}
     </>

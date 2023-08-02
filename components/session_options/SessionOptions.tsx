@@ -11,9 +11,15 @@ import styles from "@/styles/pages/SessionOptions.module.scss";
 function SessionOptions() {
   const [duration, setDuration] = useState("1");
   const [location, setLocation] = useState("");
+  const [background, setBackground] = useState("blob");
 
   const updateDuration = (minutes: string) => {
     setDuration(minutes);
+  };
+
+  const updateLocation = (location: string) => {
+    setLocation(location);
+    setBackground(location);
   };
 
   return (
@@ -21,8 +27,11 @@ function SessionOptions() {
       className="container flex flex_center flex_column"
       style={{ position: "relative" }}
     >
-      <Background imgSrc="blob">
-        <Options updateDuration={updateDuration} updateLocation={setLocation} />
+      <Background imgSrc={background}>
+        <Options
+          updateDuration={updateDuration}
+          updateLocation={updateLocation}
+        />
         <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
           <Button
             url="/"
