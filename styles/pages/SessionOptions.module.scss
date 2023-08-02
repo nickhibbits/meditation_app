@@ -1,5 +1,29 @@
+@use "@/styles/variables";
+
 $selector-height: 9rem;
 $option-width: 11rem;
+
+@mixin option_base($rotate: 0deg) {
+  display: flex;
+  justify-content: flex-end;
+  transform: rotate($rotate);
+  position: absolute;
+  border-bottom: solid 1px black;
+  z-index: 2;
+
+  &:hover {
+    background: rgb(1, 23, 47);
+    background: linear-gradient(
+      to left,
+      variables.$clr-neutral-900,
+      transparent
+    );
+    border-radius: variables.$br-1;
+    color: variables.$clr-neutral-100;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
 
 .options_wrapper {
   z-index: 1;
@@ -25,32 +49,21 @@ $option-width: 11rem;
     transform: rotate(25deg);
 
     .option:nth-of-type(1) {
-      display: flex;
-      justify-content: flex-end;
-      transform: rotate(-50deg);
-      position: absolute;
-      border-bottom: solid 1px black;
+      @include option_base(-50deg);
       width: $option-width;
       top: -0.72rem;
       right: -4.06rem;
     }
 
     .option:nth-of-type(2) {
-      display: flex;
-      justify-content: flex-end;
-      transform: rotate(-25deg);
-      position: absolute;
-      border-bottom: solid 1px black;
+      @include option_base(-25deg);
       width: calc($option-width + 1.5rem);
       top: 0.7rem;
       right: -7.15rem;
     }
 
     .option:nth-of-type(3) {
-      display: flex;
-      justify-content: flex-end;
-      position: absolute;
-      border-bottom: solid 1px black;
+      @include option_base();
       width: $option-width;
       top: 3.35rem;
       right: -6.5rem;
@@ -60,6 +73,4 @@ $option-width: 11rem;
 
 .nav_button_wrapper {
   width: 100%;
-  // position: absolute;
-  // top: 30rem;
 }
