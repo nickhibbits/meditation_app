@@ -3,7 +3,7 @@
 $selector-height: 9rem;
 $option-width: 11rem;
 
-@mixin option_base($rotate: 0deg) {
+@mixin option_base($rotate: 0deg, $hover_clr) {
   display: flex;
   justify-content: flex-end;
   transform: rotate($rotate);
@@ -12,14 +12,7 @@ $option-width: 11rem;
   z-index: 2;
 
   &:hover {
-    background: rgb(1, 23, 47);
-    background: linear-gradient(
-      to left,
-      variables.$clr-neutral-900,
-      transparent
-    );
-    border-radius: variables.$br-1;
-    color: variables.$clr-neutral-100;
+    color: $hover_clr;
     z-index: 2;
     cursor: pointer;
   }
@@ -49,21 +42,21 @@ $option-width: 11rem;
     transform: rotate(25deg);
 
     .option:nth-of-type(1) {
-      @include option_base(-50deg);
+      @include option_base(-50deg, variables.$clr-primary-200);
       width: $option-width;
       top: -0.72rem;
       right: -4.06rem;
     }
 
     .option:nth-of-type(2) {
-      @include option_base(-25deg);
+      @include option_base(-25deg, variables.$clr-secondary-100);
       width: calc($option-width + 1.5rem);
       top: 0.7rem;
       right: -7.15rem;
     }
 
     .option:nth-of-type(3) {
-      @include option_base();
+      @include option_base(0deg, variables.$clr-bold-100);
       width: $option-width;
       top: 3.35rem;
       right: -6.5rem;
