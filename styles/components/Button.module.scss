@@ -16,9 +16,9 @@
     z-index: 1;
 
     &:hover {
-      background-color: variables.$clr-primary-300;
+      background-color: variables.$clr-neutral-100;
       color: variables.$clr-neutral-900;
-      outline: solid 2px variables.$clr-primary-100;
+      outline: solid 2px variables.$clr-neutral-100;
       cursor: pointer;
     }
   }

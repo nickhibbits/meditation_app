@@ -66,7 +66,7 @@ $option-width: 11rem;
     }
 
     .option:nth-of-type(3) {
-      @include option_base(0deg, variables.$clr-bold-300);
+      @include option_base(0deg, variables.$clr-primary-300);
       width: $option-width;
       top: 3.35rem;
       right: -6.5rem;
