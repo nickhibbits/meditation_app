@@ -11,7 +11,7 @@ function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
   });
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", zIndex: "2" }}>
       <div style={{ fontSize: "100px" }}>
         <span>{minutes < 1 ? null : minutes}</span>:
         <span>{seconds < 10 ? `0${seconds}` : seconds}</span>

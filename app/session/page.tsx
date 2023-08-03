@@ -4,11 +4,12 @@ import { useSearchParams } from "next/navigation";
 
 import Timer from "@/components/Timer";
 import Button from "@/components/Button";
+import Background from "@/components/Background";
 
 function Session() {
   const params = useSearchParams();
   const duration = params.get("duration");
-  const location = params.get("locastion");
+  const location = params.get("location");
 
   const _duration = typeof duration === "string" ? Number(duration) : 0;
 
@@ -19,8 +20,10 @@ function Session() {
 
   return (
     <main className="container flex flex_column flex_center">
-      <Timer expiryTimestamp={expiryTimestamp} />
-      <Button url="/" text="Exit" justifyContent="center" onClick={null} />
+      <Background imgSrc={location}>
+        <Timer expiryTimestamp={expiryTimestamp} />
+        <Button url="/" text="Exit" justifyContent="center" onClick={null} />
+      </Background>
     </main>
   );
 }
