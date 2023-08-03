@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "@/components/Button";
 import Options from "@/components/Options";
@@ -21,6 +21,10 @@ function SessionOptions() {
     setLocation(location);
     setBackground(location);
   };
+
+  useEffect(() => {
+    console.log("SessionOptions background", background);
+  });
 
   return (
     <main
