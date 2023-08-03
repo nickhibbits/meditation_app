@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import ocean_1 from "@/public/images/ocean/ocean_1.jpg";
+import ocean_1 from "@/public/images/ocean/ocean_2.jpg";
 import jungle_1 from "@/public/images/jungle/jungle_3.jpg";
 import mountains_1 from "@/public/images/mountains/mountains_1.jpg";
 
@@ -11,35 +11,10 @@ function Background({
   imgSrc,
 }: {
   children: any;
-  imgSrc: "blob" | string;
+  imgSrc: string | null;
 }) {
-  if (imgSrc === "blob") {
-    return (
-      <>
-        <Image
-          src="/svg/blob_1.svg"
-          alt="blob"
-          className={styles.blob_1}
-          height={800}
-          width={800}
-        />
-        <Image
-          src="/svg/blob_2.svg"
-          alt="blob"
-          className={styles.blob_2}
-          height={700}
-          width={700}
-        />
-        <Image
-          src="/svg/blob_3.svg"
-          alt="blob"
-          className={styles.blob_3}
-          height={400}
-          width={400}
-        />
-        {children}
-      </>
-    );
+  if (imgSrc === null) {
+    return <>{children}</>;
   } else if (imgSrc === "Ocean") {
     return (
       <>

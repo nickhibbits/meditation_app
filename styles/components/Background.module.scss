@@ -1,25 +1,3 @@
-@use "@/styles/mixins/blob.scss";
-
-.blob {
-  &_1 {
-    @include blob.base_blob(-150deg, -135deg, 1.1);
-    top: 3rem;
-    right: 24rem;
-  }
-
-  &_2 {
-    @include blob.base_blob(50deg, 35deg, 1.2);
-    top: 15rem;
-    left: 25rem;
-  }
-
-  &_3 {
-    @include blob.base_blob(-45deg, -25deg, 1.3);
-    top: -3rem;
-    right: 5rem;
-  }
-}
-
 .background_image {
   position: absolute;
   width: 100dvw;

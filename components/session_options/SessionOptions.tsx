@@ -10,8 +10,8 @@ import styles from "@/styles/pages/SessionOptions.module.scss";
 
 function SessionOptions() {
   const [duration, setDuration] = useState("1");
-  const [location, setLocation] = useState("");
-  const [background, setBackground] = useState("blob");
+  const [location, setLocation] = useState<string | null>(null);
+  const [background, setBackground] = useState<string | null>(null);
 
   const updateDuration = (minutes: string) => {
     setDuration(minutes);
@@ -21,10 +21,6 @@ function SessionOptions() {
     setLocation(location);
     setBackground(location);
   };
-
-  useEffect(() => {
-    console.log("SessionOptions background", background);
-  });
 
   return (
     <main
