@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import ocean_1 from "@/public/images/ocean/ocean_2.jpg";
-import jungle_1 from "@/public/images/jungle/jungle_3.jpg";
+import jungle_1 from "@/public/images/jungle/jungle_1-min.jpg";
 import mountains_1 from "@/public/images/mountains/mountains_1.jpg";
 
 import styles from "@/styles/components/Background.module.scss";

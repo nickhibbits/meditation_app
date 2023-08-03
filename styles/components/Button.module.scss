@@ -5,19 +5,20 @@
 
   a,
   .button {
-    border: solid 1px variables.$clr-neutral-900;
+    outline: solid 2px variables.$clr-neutral-100;
     padding: variables.$padding-1 variables.$padding-2;
     border-radius: variables.$br-1;
     font-size: variables.$fs-400;
-    color: variables.$clr-neutral-900;
+    color: variables.$clr-neutral-100;
     text-decoration: none;
     min-width: 10rem;
     transition: all 0.2s;
     z-index: 1;
 
     &:hover {
-      background-color: black;
-      color: white;
+      background-color: variables.$clr-primary-300;
+      color: variables.$clr-neutral-900;
+      outline: solid 2px variables.$clr-primary-100;
       cursor: pointer;
     }
   }

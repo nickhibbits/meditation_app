@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Button from "@/components/Button";
 import Options from "@/components/Options";
@@ -28,6 +28,7 @@ function SessionOptions() {
       style={{ position: "relative" }}
     >
       <Background imgSrc={background}>
+        {/* <div className={styles.options_container}> */}
         <Options
           updateDuration={updateDuration}
           updateLocation={updateLocation}
@@ -46,6 +47,7 @@ function SessionOptions() {
             onClick={null}
           />
         </div>
+        {/* </div> */}
       </Background>
     </main>
   );
