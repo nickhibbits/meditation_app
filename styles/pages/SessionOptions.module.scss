@@ -18,15 +18,20 @@ $option-width: 11rem;
   }
 }
 
+.option_container {
+  background-color: rgba(variables.$clr-neutral-900, 0.3);
+  border-radius: variables.$br-2;
+  padding: variables.$padding-4;
+  backdrop-filter: blur(2px);
+  width: 100%;
+  border: solid 2px variables.$clr-neutral-100;
+}
+
 .options_wrapper {
   z-index: 1;
-  width: 90%;
-  justify-content: space-between;
-  background-color: rgba(variables.$clr-neutral-900, 0.4);
-  border-radius: variables.$br-1;
-  padding: variables.$padding-3;
+  // width: 90%;
   margin-bottom: 2rem;
-  backdrop-filter: blur(2px);
+  justify-content: space-between;
 }
 
 .session_option_component {
@@ -69,6 +74,6 @@ $option-width: 11rem;
   }
 }
 
-.nav_button_wrapper {
-  width: 100%;
-}
+// .nav_button_wrapper {
+//   width: 100%;
+// }

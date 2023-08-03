@@ -28,26 +28,26 @@ function SessionOptions() {
       style={{ position: "relative" }}
     >
       <Background imgSrc={background}>
-        {/* <div className={styles.options_container}> */}
-        <Options
-          updateDuration={updateDuration}
-          updateLocation={updateLocation}
-        />
-        <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
-          <Button
-            url="/"
-            text="Back"
-            justifyContent="flex-start"
-            onClick={null}
+        <div className={styles.option_container}>
+          <Options
+            updateDuration={updateDuration}
+            updateLocation={updateLocation}
           />
-          <Button
-            url={`/session?duration=${duration}&location=${location}`}
-            text="Start"
-            justifyContent="flex-end"
-            onClick={null}
-          />
+          <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
+            <Button
+              url="/"
+              text="Back"
+              justifyContent="flex-start"
+              onClick={null}
+            />
+            <Button
+              url={`/session?duration=${duration}&location=${location}`}
+              text="Start"
+              justifyContent="flex-end"
+              onClick={null}
+            />
+          </div>
         </div>
-        {/* </div> */}
       </Background>
     </main>
   );
