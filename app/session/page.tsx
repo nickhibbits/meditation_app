@@ -20,10 +20,9 @@ function Session() {
 
   return (
     <main className="container flex flex_column flex_center">
-      <Background imgSrc={location}>
-        <Timer expiryTimestamp={expiryTimestamp} />
-        <Button url="/" text="Exit" justifyContent="center" onClick={null} />
-      </Background>
+      <Background imgSrc={location} />
+      <Timer expiryTimestamp={expiryTimestamp} />
+      <Button url="/" text="Exit" justifyContent="center" onClick={null} />
     </main>
   );
 }

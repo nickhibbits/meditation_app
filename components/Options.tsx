@@ -1,5 +1,3 @@
-"use client";
-
 import SessionOption from "@/components/session_options/SessionOption";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
