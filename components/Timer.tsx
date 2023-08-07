@@ -5,12 +5,11 @@ import Button from "@/components/Button";
 import styles from "@/styles/components/Timer.module.scss";
 
 function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
-  const { seconds, minutes, isRunning, start, pause, resume, restart } =
-    useTimer({
-      expiryTimestamp,
-      autoStart: false,
-      onExpire: () => console.warn("onExpire called"),
-    });
+  const { seconds, minutes, isRunning, pause, resume } = useTimer({
+    expiryTimestamp,
+    autoStart: false,
+    onExpire: () => console.warn("onExpire called"),
+  });
 
   return (
     <div style={{ textAlign: "center", zIndex: "2" }}>
