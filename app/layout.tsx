@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
-import { SessionProvider } from "next-auth/react";
 
 import type { Metadata } from "next";
 
 import "@/styles/globals.scss";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,16 +12,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  session,
   children,
 }: {
-  session: any;
   children: React.ReactNode;
 }) {
+
+  const session = null; // make request to /api/auth/current-user here or in getStaticProps function?
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider session={session}>{children}</SessionProvider>
+        <Providers session={session}>{children}</Providers>
       </body>
     </html>
   );
