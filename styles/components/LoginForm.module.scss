@@ -1,13 +1,12 @@
 @use "@/styles/variables";
 
 .form_wrapper {
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .login_form {
   outline: solid 2px variables.$clr-neutral-100;
-  width: clamp(20rem, 30rem, 60%);
+  width: calc(100% - 15rem);
   margin-inline: auto;
   padding: 2rem;
   border-radius: variables.$br-1;

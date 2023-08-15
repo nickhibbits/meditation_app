@@ -16,8 +16,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   const session = null; // make request to /api/auth/current-user here or in getStaticProps function?
+
   return (
     <html lang="en">
       <body className={inter.className}>
