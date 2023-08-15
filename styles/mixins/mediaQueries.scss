@@ -1,7 +1,7 @@
 $font-base: 16px; // Base font size in pixels
-$tablet: 700px;
+$tablet: 720px;
 $desktop: 1110px;
-$large-screen: 1400px;
+$large-screen: 1600px;
 
 // Tablet media query (769px to 1024px)
 @mixin tablet {
