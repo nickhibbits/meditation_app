@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import classes from "@/styles/components/LoginForm.module.scss";
+import Button from "@/components/Button";
 
 function LoginForm({ checkAuth }: { checkAuth: any }) {
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -9,6 +10,7 @@ function LoginForm({ checkAuth }: { checkAuth: any }) {
 
   const handleLogin = (e: any) => {
     e.preventDefault();
+    console.log("Login 🎃");
 
     if (passwordRef.current && usernameRef.current) {
       const password = passwordRef.current.value;
@@ -39,9 +41,19 @@ function LoginForm({ checkAuth }: { checkAuth: any }) {
             className={classes.form_input}
           />
         </div>
-        <div className={`text ${classes.button_wrapper}`}>
-          <button className={classes.form_button}>Login</button>
-          <button className={classes.form_button}>Create Account</button>
+        <div className="flex">
+          <Button
+            text={"Login"}
+            onClick={null}
+            url={""}
+            justifyContent="flex-start"
+          />
+          <Button
+            text={"Create Account"}
+            onClick={null}
+            url={""}
+            justifyContent="flex-end"
+          />
         </div>
       </form>
     </div>
