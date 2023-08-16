@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { enterAnimation } from "@/constants/animations";
+import { enterAnimation } from "@/lib/constants/animations";
 
 import Link from "next/link";
 

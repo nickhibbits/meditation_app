@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { enterAnimation, spinAnimation } from "@/constants/animations";
+import { enterAnimation, spinAnimation } from "@/lib/constants/animations";
 
 import DurationSelector from "@/components/session_options/DurationSelector";
 import LocationSelector from "@/components/session_options/LocationSelector";
