@@ -1,4 +1,4 @@
-import LoginForm from "@/components/LoginForm";
+import AuthForm from "@/components/AuthForm";
 
 function AccountInfo() {
   <div>Account Info</div>;

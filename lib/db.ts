@@ -14,9 +14,9 @@ const uri =
 export async function connnectToDb() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    const _client = await new MongoClient(uri).connect();
+    const client = await new MongoClient(uri).connect();
 
-    return _client;
+    return client;
   } catch (error: any) {
     console.log("❌ Error", error);
   }
