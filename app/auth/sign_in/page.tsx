@@ -1,17 +1,27 @@
-"use server";
-
 import AuthForm from "@/components/AuthForm";
-import { connnectToDb } from "@/lib/db";
-import { handleCheckAuth } from "@/lib/utils/handleCheckAuth";
+// import { connnectToDb } from "@/lib/db"
 
 async function SignIn() {
   // await connect();
 
   return (
     <main className="container flex flex_column flex_center">
-      <AuthForm formType={"sign_in"} checkAuth={handleCheckAuth} />
+      <AuthForm formType={"sign_in"} performAuth={handlePerformAuth} />
     </main>
   );
+}
+
+async function handlePerformAuth() {
+  "use server";
+  console.log("🟥");
+
+  // const message = new Promise(() =>
+  //   setTimeout(() => {
+  //     console.log("🟥");
+  //   }, 500)
+  // );
+
+  // return await message.then((res) => res);
 }
 
 // async function connect() {

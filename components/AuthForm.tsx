@@ -6,10 +6,10 @@ import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
 
 function AuthForm({
-  checkAuth,
+  performAuth,
   formType,
 }: {
-  checkAuth: any;
+  performAuth: any;
   formType: "sign_in" | "sign_up";
 }) {
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -17,24 +17,9 @@ function AuthForm({
   const usernameRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const handleLogin = (e: any) => {
-    e.preventDefault();
-
-    // MAKE SIGNIN API CALL
-
-    // if (passwordRef.current && usernameRef.current) {
-    //   const password = passwordRef.current.value;
-    //   const username = usernameRef.current.value;
-
-    //   checkAuth({ password, username });
-    //   passwordRef.current.value = "";
-    //   usernameRef.current.value = "";
-    // }
-  };
-
   return (
     <div className={classes.form_wrapper}>
-      <form className={classes.login_form} onSubmit={(e) => handleLogin(e)}>
+      <form className={classes.login_form} onSubmit={() => performAuth()}>
         <div className={classes.input_wrapper}>
           <label htmlFor="" className={classes.form_label}>
             Username
@@ -70,6 +55,7 @@ function AuthForm({
             onClick={null}
             url={""}
             justifyContent="flex-start"
+            type="submit"
           />
           {formType !== "sign_up" ? (
             <Button
@@ -77,6 +63,7 @@ function AuthForm({
               onClick={() => router.push("/auth/sign_up")}
               url={""}
               justifyContent="flex-end"
+              type="button"
             />
           ) : null}
         </div>

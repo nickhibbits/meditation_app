@@ -1,4 +1,4 @@
-import { connnectToDb } from "@/lib/db";
+import { connnectToDb } from "@/lib/utils/db";
 import { NextResponse } from "next/server";
 
 export async function POST() {

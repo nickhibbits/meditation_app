@@ -12,11 +12,13 @@ function Button({
   text,
   justifyContent,
   onClick,
+  type,
 }: {
   url: string;
   text: string;
   justifyContent: string;
   onClick: any;
+  type: any;
 }) {
   return (
     <motion.div
@@ -33,6 +35,7 @@ function Button({
         <button
           className={`flex flex_center ${styles.button}`}
           onClick={onClick}
+          type={type}
         >
           {text}
         </button>
