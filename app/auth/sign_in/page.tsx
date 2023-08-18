@@ -6,12 +6,12 @@ async function SignIn() {
 
   return (
     <main className="container flex flex_column flex_center">
-      <AuthForm formType={"sign_in"} performAuth={handlePerformAuth} />
+      <AuthForm formType={"sign_in"} submitHandler={handleSubmit} />
     </main>
   );
 }
 
-async function handlePerformAuth() {
+async function handleSubmit() {
   "use server";
   console.log("🟥");
 

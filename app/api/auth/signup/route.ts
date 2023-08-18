@@ -1,3 +1,4 @@
+import { hashPassword } from "@/lib/auth";
 import { connnectToDb } from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -18,12 +19,16 @@ export async function POST(request: NextRequest) {
 
   const db = client?.db();
 
-  db?.collection("users").insertOne({
+  const hashedPassword = hashPassword(password);
+
+  const result = db?.collection("users").insertOne({
     username: username,
     password: password,
+    // password: hashedPassword
   });
 
   return NextResponse.json({
     message: "User Successfully added",
+    result: result,
   });
 }

@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import classes from "@/styles/components/AuthForm.module.scss";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
 
 function AuthForm({
-  performAuth,
+  submitHandler,
   formType,
 }: {
-  performAuth: any;
+  submitHandler: any;
   formType: "sign_in" | "sign_up";
 }) {
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -17,9 +17,18 @@ function AuthForm({
   const usernameRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    submitHandler({
+      username: usernameRef.current?.value,
+      password: passwordRef.current?.value,
+    });
+  };
+
   return (
     <div className={classes.form_wrapper}>
-      <form className={classes.login_form} onSubmit={() => performAuth()}>
+      <form className={classes.login_form} onSubmit={(e) => handleSubmit(e)}>
         <div className={classes.input_wrapper}>
           <label htmlFor="" className={classes.form_label}>
             Username
