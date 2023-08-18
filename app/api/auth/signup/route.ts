@@ -1,21 +1,29 @@
-import { connnectToDb } from "@/lib/utils/db";
-import { NextResponse } from "next/server";
+import { connnectToDb } from "@/lib/db";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST() {
+export async function POST(request: NextRequest) {
+  console.log("🟠 sign_up request", request);
+
+  const data = request.body as any;
+  const { username, password } = data;
+
+  if (!username || !password || password.trim().length < 7) {
+    return NextResponse.json({
+      message:
+        "Invalid input -- password should also be at least 7 characters long.",
+    });
+  }
+
   const client = await connnectToDb();
 
   const db = client?.db();
 
-  const res = await fetch("https://data.mongodb-api.com/...", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "API-Key": process.env.DATA_API_KEY,
-    },
-    body: JSON.stringify({ time: new Date().toISOString() }),
+  db?.collection("users").insertOne({
+    username: username,
+    password: password,
   });
 
-  const data = await res.json();
-
-  return NextResponse.json(data);
+  return NextResponse.json({
+    message: "User Successfully added",
+  });
 }

@@ -5,7 +5,6 @@ export async function POST() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "API-Key": process.env.DATA_API_KEY,
     },
     body: JSON.stringify({ time: new Date().toISOString() }),
   });

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { enterAnimation } from "@/lib/constants/animations";
+import { enterAnimation } from "@/lib/animations";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
 
