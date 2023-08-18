@@ -1,6 +1,6 @@
-import AuthForm from "@/components/AuthForm";
 import { createUser } from "@/lib/auth";
-import { connnectToDb } from "@/lib/db";
+
+import AuthForm from "@/components/AuthForm";
 
 async function handleSubmit({
   username,
@@ -11,28 +11,7 @@ async function handleSubmit({
 }) {
   "use server";
 
-  console.log("⭐️ HERE");
-
-  // const res = await createUser(username, password);
-  if (!username || !password || password.trim().length < 7) {
-    throw new Error(
-      "Invalid input -- password should also be at least 7 characters long."
-    );
-  }
-
-  const client = await connnectToDb();
-
-  const db = client?.db();
-
-  // const hashedPassword = hashPassword(password);
-
-  const result = db?.collection("users").insertOne({
-    username: username,
-    password: password,
-    // password: hashedPassword
-  });
-
-  console.log("🟢 createUser response", result);
+  createUser(username, password);
 }
 
 function SignUp() {
