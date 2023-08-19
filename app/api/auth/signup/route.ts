@@ -1,5 +1,4 @@
 import { connnectToDb } from "@/lib/db";
-import Error from "next/error";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
