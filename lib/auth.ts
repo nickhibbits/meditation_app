@@ -8,66 +8,6 @@ export async function hashPassword(password: string) {
   return hashedPassword;
 }
 
-// Server Actions
-export async function createUser({
-  username,
-  password,
-}: {
-  username: string;
-  password: string;
-}) {
-  "use server";
-
-  let response;
-
-  try {
-    if (!username || !password || password.trim().length < 7) {
-      throw new Error(
-        "Invalid input -- password should also be at least 7 characters long."
-      );
-    }
-
-    const client = await connnectToDb();
-
-    const db = client?.db();
-
-    const existingUser = await db
-      ?.collection("users")
-      .findOne({ username: username });
-
-    if (existingUser) {
-      throw new Error("User already exists.");
-    }
-
-    // const hashedPassword = hashPassword(password);
-
-    const result = await db?.collection("users").insertOne({
-      username: username,
-      password: password,
-      // password: hashedPassword
-    });
-
-    // consider redirect here instead of on client
-    response = {
-      status: 200,
-      message: `User ${username} successfully created.`,
-      data: result,
-    };
-
-    return response;
-  } catch (error) {
-    // console.log("❌ ERROR", error);
-
-    const response = {
-      status: 500,
-      message: error,
-      data: null,
-    };
-
-    return response;
-  }
-}
-
 export async function login(username: string, password: string) {
   "use server";
 

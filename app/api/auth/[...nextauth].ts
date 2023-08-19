@@ -31,7 +31,7 @@ export const authOptions = {
           }
 
           client?.close();
-          return { user: user.username };
+          return { user: {user: user.username, id:  }};
         } catch (error) {
           console.log("ERROR", error);
 

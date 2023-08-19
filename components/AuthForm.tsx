@@ -6,10 +6,10 @@ import classes from "@/styles/components/AuthForm.module.scss";
 import Button from "@/components/Button";
 
 function AuthForm({
-  submitHandler,
+  fetchUrl,
   formType,
 }: {
-  submitHandler: any;
+  fetchUrl: string;
   formType: "sign_in" | "sign_up";
 }) {
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -20,17 +20,22 @@ function AuthForm({
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const res = await submitHandler({
-      username: usernameRef.current?.value,
-      password: passwordRef.current?.value,
-    });
+    const res = await fetch(fetchUrl, {
+      method: "POST",
+      body: JSON.stringify({
+        username: usernameRef.current?.value,
+        password: passwordRef.current?.value,
+      }),
+    }).then((res) => res.json());
 
-    // console.log("🟢 submitHandler res", res);
+    console.log("🏓 res", res);
 
     if (res.status !== 200) {
       alert(res.message);
       return;
-    } else {
+    }
+
+    if (res.status === 200 && formType === "sign_up") {
       router.push("/auth/sign_in"); // consider redirect from server action
     }
   };
