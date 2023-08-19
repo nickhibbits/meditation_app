@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import classes from "@/styles/components/AuthForm.module.scss";
 import Button from "@/components/Button";
 
@@ -17,13 +17,22 @@ function AuthForm({
   const usernameRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    submitHandler({
+    const res = await submitHandler({
       username: usernameRef.current?.value,
       password: passwordRef.current?.value,
     });
+
+    // console.log("🟢 submitHandler res", res);
+
+    if (res.status !== 200) {
+      alert(res.message);
+      return;
+    } else {
+      router.push("/auth/sign_in");
+    }
   };
 
   return (

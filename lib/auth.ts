@@ -10,28 +10,64 @@ export async function hashPassword(password: string) {
 
 // Server Actions
 // TODO -- Error handling
-export async function createUser(username: string, password: string) {
+export async function createUser({
+  username,
+  password,
+}: {
+  username: string;
+  password: string;
+}) {
   "use server";
 
-  if (!username || !password || password.trim().length < 7) {
-    throw new Error(
-      "Invalid input -- password should also be at least 7 characters long."
-    );
+  let response;
+
+  try {
+    if (!username || !password || password.trim().length < 7) {
+      throw new Error(
+        "Invalid input -- password should also be at least 7 characters long."
+      );
+    }
+
+    const client = await connnectToDb();
+
+    const db = client?.db();
+
+    const existingUser = await db
+      ?.collection("users")
+      .findOne({ username: username });
+
+    if (existingUser) {
+      throw new Error("User already exists.");
+    }
+
+    // const hashedPassword = hashPassword(password);
+
+    const result = await db?.collection("users").insertOne({
+      username: username,
+      password: password,
+      // password: hashedPassword
+    });
+
+    // console.log("🟢 createUser response", result);
+
+    response = {
+      status: 200,
+      message: `User ${username} successfully created.`,
+      data: result,
+    };
+
+    return response;
+  } catch (error) {
+    // console.log("❌ ERROR", error);
+
+    const response = {
+      status: 500,
+      message: error,
+      data: null,
+    };
+
+    return response;
   }
-
-  const client = await connnectToDb();
-
-  const db = client?.db();
-
-  // const hashedPassword = hashPassword(password);
-
-  const result = await db?.collection("users").insertOne({
-    username: username,
-    password: password,
-    // password: hashedPassword
-  });
-
-  console.log("🟢 createUser response", result);
 }
 
 export async function login(username: string, password: string) {
