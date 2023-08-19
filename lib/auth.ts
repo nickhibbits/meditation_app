@@ -8,8 +8,11 @@ export async function hashPassword(password: string) {
   return hashedPassword;
 }
 
-// Database Queries
+// Server Actions
+// TODO -- Error handling
 export async function createUser(username: string, password: string) {
+  "use server";
+
   if (!username || !password || password.trim().length < 7) {
     throw new Error(
       "Invalid input -- password should also be at least 7 characters long."
@@ -29,4 +32,16 @@ export async function createUser(username: string, password: string) {
   });
 
   console.log("🟢 createUser response", result);
+}
+
+export async function login(username: string, password: string) {
+  "use server";
+
+  const client = await connnectToDb();
+
+  const db = client?.db();
+
+  const result = await db?.collection; // run verification between user and password
+
+  console.log("🟢 login response", result);
 }

@@ -17,7 +17,7 @@ function AuthForm({
   const usernameRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
     submitHandler({
