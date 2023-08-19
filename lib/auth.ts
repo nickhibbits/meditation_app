@@ -9,7 +9,6 @@ export async function hashPassword(password: string) {
 }
 
 // Server Actions
-// TODO -- Error handling
 export async function createUser({
   username,
   password,
@@ -48,8 +47,7 @@ export async function createUser({
       // password: hashedPassword
     });
 
-    // console.log("🟢 createUser response", result);
-
+    // consider redirect here instead of on client
     response = {
       status: 200,
       message: `User ${username} successfully created.`,

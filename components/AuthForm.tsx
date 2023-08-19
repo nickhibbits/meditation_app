@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import classes from "@/styles/components/AuthForm.module.scss";
 import Button from "@/components/Button";
 
@@ -31,7 +31,7 @@ function AuthForm({
       alert(res.message);
       return;
     } else {
-      router.push("/auth/sign_in");
+      router.push("/auth/sign_in"); // consider redirect from server action
     }
   };
 
