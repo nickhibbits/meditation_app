@@ -1,5 +1,3 @@
-// import { createUser } from "@/lib/auth";
-
 import AuthForm from "@/components/AuthForm";
 
 function SignUp() {

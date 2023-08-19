@@ -7,15 +7,3 @@ export async function hashPassword(password: string) {
 
   return hashedPassword;
 }
-
-export async function login(username: string, password: string) {
-  "use server";
-
-  const client = await connnectToDb();
-
-  const db = client?.db();
-
-  const result = await db?.collection; // run verification between user and password
-
-  console.log("🟢 login response", result);
-}
