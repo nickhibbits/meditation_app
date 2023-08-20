@@ -1,11 +1,11 @@
 import AuthForm from "@/components/AuthForm";
 
-async function SignIn() {
+function SignUp() {
   return (
     <main className="container flex flex_column flex_center">
-      <AuthForm formType={"sign_in"} fetchUrl={"/api/auth/sign_in"} />
+      <AuthForm formType={"signup"} fetchUrl={"/api/auth/signup"} />
     </main>
   );
 }
 
-export default SignIn;
+export default SignUp;

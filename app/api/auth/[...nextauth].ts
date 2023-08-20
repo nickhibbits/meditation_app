@@ -19,6 +19,7 @@ export const authOptions = {
           });
 
           if (!user) {
+            client?.close();
             throw new Error("No user found!");
           }
 
@@ -31,7 +32,7 @@ export const authOptions = {
           }
 
           client?.close();
-          return { user: {user: user.username, id:  }};
+          return { user: user.username };
         } catch (error) {
           console.log("ERROR", error);
 

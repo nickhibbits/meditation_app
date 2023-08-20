@@ -4,20 +4,21 @@ import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import classes from "@/styles/components/AuthForm.module.scss";
 import Button from "@/components/Button";
+import { signIn } from "next-auth/react";
 
 function AuthForm({
   fetchUrl,
   formType,
 }: {
   fetchUrl: string;
-  formType: "sign_in" | "sign_up";
+  formType: "signin" | "signup";
 }) {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const usernameRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const handleSubmit = async (e: any) => {
+  const handleSignup = async (e: any) => {
     e.preventDefault();
 
     const res = await fetch(fetchUrl, {
@@ -35,14 +36,29 @@ function AuthForm({
       return;
     }
 
-    if (res.status === 200 && formType === "sign_up") {
-      router.push("/auth/sign_in"); // consider redirect from server action
+    if (res.status === 200 && formType === "signup") {
+      router.push("/auth/signin");
     }
+  };
+
+  const handleSignin = async (e: any) => {
+    const res = await signIn("credentials", {
+      redirect: false,
+      username: usernameRef,
+      password: passwordRef,
+    });
   };
 
   return (
     <div className={classes.form_wrapper}>
-      <form className={classes.login_form} onSubmit={(e) => handleSubmit(e)}>
+      <form
+        className={classes.login_form}
+        onSubmit={
+          formType === "signup"
+            ? (e) => handleSignup(e)
+            : (e) => handleSignin(e)
+        }
+      >
         <div className={classes.input_wrapper}>
           <label htmlFor="" className={classes.form_label}>
             Username
@@ -59,7 +75,7 @@ function AuthForm({
             className={classes.form_input}
           />
         </div>
-        {formType === "sign_up" ? (
+        {formType === "signup" ? (
           <div className={classes.input_wrapper}>
             <label htmlFor="" className={classes.form_label}>
               Confirm Password
@@ -74,16 +90,16 @@ function AuthForm({
 
         <div className={`flex ${classes.button_wrapper}`}>
           <Button
-            text={formType === "sign_in" ? "Login" : "Create"}
+            text={formType === "signin" ? "Login" : "Create"}
             onClick={null}
             url={""}
             justifyContent="flex-start"
             type="submit"
           />
-          {formType !== "sign_up" ? (
+          {formType !== "signup" ? (
             <Button
               text={"Create Account"}
-              onClick={() => router.push("/auth/sign_up")}
+              onClick={() => router.push("/auth/signup")}
               url={""}
               justifyContent="flex-end"
               type="button"
