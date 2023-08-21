@@ -2,13 +2,13 @@ import { connnectToDb } from "@/lib/db";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions = {
-  session: {
-    jwt: true,
-  },
+export const handler = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        console.log("🫀 authorize");
+        console.log("credentials", credentials);
+
         try {
           const client = await connnectToDb();
 
@@ -34,13 +34,16 @@ export const authOptions = {
           client?.close();
           return { user: user.username };
         } catch (error) {
-          console.log("ERROR", error);
+          console.log("❌ ERROR", error);
 
           return null;
         }
       },
     }),
   ],
-};
+  pages: {
+    signIn: "/auth/signin",
+  },
+});
 
-export default NextAuth(authOptions);
+export { handler as GET, handler as POST };

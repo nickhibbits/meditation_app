@@ -2,17 +2,13 @@
 
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
-import classes from "@/styles/components/AuthForm.module.scss";
-import Button from "@/components/Button";
 import { signIn } from "next-auth/react";
 
-function AuthForm({
-  fetchUrl,
-  formType,
-}: {
-  fetchUrl: string;
-  formType: "signin" | "signup";
-}) {
+import Button from "@/components/Button";
+
+import classes from "@/styles/components/AuthForm.module.scss";
+
+function AuthForm({ formType }: { formType: "signin" | "signup" }) {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -21,7 +17,7 @@ function AuthForm({
   const handleSignup = async (e: any) => {
     e.preventDefault();
 
-    const res = await fetch(fetchUrl, {
+    const res = await fetch("/api/auth/signup", {
       method: "POST",
       body: JSON.stringify({
         username: usernameRef.current?.value,
@@ -42,11 +38,17 @@ function AuthForm({
   };
 
   const handleSignin = async (e: any) => {
-    const res = await signIn("credentials", {
-      redirect: false,
-      username: usernameRef,
-      password: passwordRef,
-    });
+    e.preventDefault();
+
+    if (usernameRef.current && passwordRef.current) {
+      const res = await signIn("credentials", {
+        redirect: false,
+        username: usernameRef.current.value,
+        password: passwordRef.current.value,
+      });
+
+      console.log("res", res);
+    }
   };
 
   return (
