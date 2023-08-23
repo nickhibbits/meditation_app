@@ -10,12 +10,19 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
+  console.log(
+    "🔴 TODO",
+    "research how to check session on server -- getServerSideProps(context) not available in app folder, but server actions dont give access to a request or context object needed for getSession(req)"
+  );
+
   useEffect(() => {
     getSession().then((session) => {
       console.log("session", session);
       if (!session) {
         router.push("/auth/signin");
       }
+
+      setIsLoading(false);
     });
   }, []);
 
