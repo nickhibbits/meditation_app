@@ -42,12 +42,13 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
 
     if (usernameRef.current && passwordRef.current) {
       const res = await signIn("credentials", {
-        redirect: false,
         username: usernameRef.current.value,
         password: passwordRef.current.value,
       });
 
-      console.log("res", res);
+      if (res?.status === 200) {
+        router.push("/");
+      }
     }
   };
 

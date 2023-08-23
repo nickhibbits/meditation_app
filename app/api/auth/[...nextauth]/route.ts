@@ -6,13 +6,13 @@ export const handler = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        try {
+        if (typeof credentials !== "undefined") {
           const client = await connnectToDb();
 
           const usersCollection = client?.db().collection("users");
 
           const user = await usersCollection?.findOne({
-            username: credentials?.username,
+            username: credentials.username,
           });
 
           if (!user) {
@@ -21,7 +21,7 @@ export const handler = NextAuth({
           }
 
           // compare passwords after enabling hashing
-          const isValid = credentials?.password === user?.password;
+          const isValid = credentials.password === user?.password;
 
           if (!isValid) {
             client?.close();
@@ -31,11 +31,7 @@ export const handler = NextAuth({
           console.log("user", user);
           client?.close();
 
-          return { user: user.username };
-        } catch (error) {
-          console.log("❌ ERROR", error);
-
-          return null;
+          return { name: user.username };
         }
       },
     }),
