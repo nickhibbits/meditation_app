@@ -1,6 +1,7 @@
 "use client";
 
 import { SessionProvider } from "next-auth/react";
+import { useEffect } from "react";
 
 function Providers({
   session,
@@ -9,6 +10,9 @@ function Providers({
   session: any;
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    console.log("session updated", session);
+  }, [session]);
   return <SessionProvider session={session}>{children}</SessionProvider>;
 }
 

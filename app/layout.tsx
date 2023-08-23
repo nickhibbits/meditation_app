@@ -2,8 +2,6 @@ import { Inter } from "next/font/google";
 
 import type { Metadata } from "next";
 
-import Providers from "@/components/Providers";
-
 import "@/styles/globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,13 +15,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = null; // make request to /api/auth/current-user here or in getStaticProps function?
-
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers session={session}>{children}</Providers>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

@@ -6,9 +6,6 @@ export const handler = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        console.log("🫀 authorize");
-        console.log("credentials", credentials);
-
         try {
           const client = await connnectToDb();
 
@@ -31,7 +28,9 @@ export const handler = NextAuth({
             throw new Error("Could not verify user credentials");
           }
 
+          console.log("user", user);
           client?.close();
+
           return { user: user.username };
         } catch (error) {
           console.log("❌ ERROR", error);
@@ -41,9 +40,6 @@ export const handler = NextAuth({
       },
     }),
   ],
-  pages: {
-    signIn: "/auth/signin",
-  },
 });
 
 export { handler as GET, handler as POST };
