@@ -10,9 +10,10 @@ function Providers({
   session: any;
   children: React.ReactNode;
 }) {
-  useEffect(() => {
-    console.log("session updated", session);
-  }, [session]);
+  // useEffect(() => {
+  //   console.log("session updated", session);
+  // }, [session]);
+
   return <SessionProvider session={session}>{children}</SessionProvider>;
 }
 

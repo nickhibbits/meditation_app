@@ -1,12 +1,10 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import Timer from "@/components/Timer";
 import Button from "@/components/Button";
 import Background from "@/components/Background";
-import { getSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 
 function Session() {
   // Redirect if NOT auth
