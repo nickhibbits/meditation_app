@@ -1,12 +1,16 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Timer from "@/components/Timer";
 import Button from "@/components/Button";
 import Background from "@/components/Background";
+import { getSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 function Session() {
+  // Redirect if NOT auth
+
   const params = useSearchParams();
   const duration = params.get("duration");
   const location = params.get("location");
@@ -22,7 +26,13 @@ function Session() {
     <main className="container flex flex_column flex_center">
       <Background imgSrc={location} />
       <Timer expiryTimestamp={expiryTimestamp} />
-      <Button url="/" text="Exit" justifyContent="center" onClick={null} />
+      <Button
+        url="/"
+        text="Exit"
+        justifyContent="center"
+        onClick={null}
+        type={"button"}
+      />
     </main>
   );
 }
