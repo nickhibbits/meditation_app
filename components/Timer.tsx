@@ -5,6 +5,15 @@ import Button from "@/components/Button";
 import styles from "@/styles/components/Timer.module.scss";
 
 function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
+  const saveTime = async (mintues: number) => {
+    const res = await fetch("/api/user/update", {
+      method: "POST",
+      body: {
+        minutes: minutes,
+      },
+    });
+  };
+
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
     expiryTimestamp,
     autoStart: false,
@@ -19,12 +28,19 @@ function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
       </div>
       <p>{isRunning ? "In session" : "Paused"}</p>
       <div className={`flex ${styles.buttons_wrapper}`}>
-        <Button text="Pause" url={""} onClick={pause} justifyContent="center" />
+        <Button
+          text="Pause"
+          url={""}
+          onClick={pause}
+          justifyContent="center"
+          type={"button"}
+        />
         <Button
           text="Start"
           url={""}
           onClick={resume}
           justifyContent="center"
+          type={"button"}
         />
       </div>
     </div>

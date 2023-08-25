@@ -41,16 +41,15 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
     e.preventDefault();
 
     if (usernameRef.current && passwordRef.current) {
-      const res = await signIn("credentials", {
+      await signIn("credentials", {
         redirect: false,
         username: usernameRef.current.value,
         password: passwordRef.current.value,
-      }).then(({ ok, error }) => {
+      }).then(({ ok }) => {
         if (ok) {
           router.push("/");
         } else {
-          console.log("ERROR", error);
-          alert(error);
+          console.log("ERROR");
         }
       });
     }
