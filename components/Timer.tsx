@@ -8,16 +8,21 @@ function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
   const saveTime = async (mintues: number) => {
     const res = await fetch("/api/user/update", {
       method: "POST",
-      body: {
-        minutes: minutes,
+      headers: {
+        "Content-Type": "application/json",
       },
-    });
+      body: JSON.stringify({
+        minutes: minutes,
+      }),
+    }).then((res) => res.json());
+
+    console.log("res", res);
   };
 
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
     expiryTimestamp,
     autoStart: false,
-    onExpire: () => console.warn("onExpire called"),
+    onExpire: () => saveTime(minutes),
   });
 
   return (
