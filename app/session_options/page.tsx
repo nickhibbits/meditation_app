@@ -7,10 +7,13 @@ import Options from "@/components/Options";
 import Background from "@/components/Background";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
+import NavBar from "@/components/NavBar";
+import { useSession } from "next-auth/react";
 
 function SessionOptions() {
   const [duration, setDuration] = useState("1");
   const [location, setLocation] = useState<string | null>(null);
+  const { data } = useSession();
 
   const handleUpdateDuration = (minutes: string) => {
     setDuration(minutes);
@@ -21,32 +24,37 @@ function SessionOptions() {
   };
 
   return (
-    <main
-      className="container flex flex_center flex_column"
-      style={{ position: "relative" }}
-    >
-      <Background imgSrc={location} />
-      <div className={styles.option_container}>
-        <Options
-          updateDuration={handleUpdateDuration}
-          updateLocation={handleUpdateLocation}
-        />
-        <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
-          <Button
-            url="/"
-            text="Back"
-            justifyContent="flex-start"
-            onClick={null}
+    <>
+      <NavBar user={data?.user as string} />
+      <main
+        className="container flex flex_center flex_column"
+        style={{ position: "relative" }}
+      >
+        <Background imgSrc={location} />
+        <div className={styles.option_container}>
+          <Options
+            updateDuration={handleUpdateDuration}
+            updateLocation={handleUpdateLocation}
           />
-          <Button
-            url={`/session?duration=${duration}&location=${location}`}
-            text="Start"
-            justifyContent="flex-end"
-            onClick={null}
-          />
+          <div className={`flex flex_row ${styles.nav_button_wrapper}`}>
+            <Button
+              url="/"
+              text="Back"
+              justifyContent="flex-start"
+              onClick={null}
+              type={"button"}
+            />
+            <Button
+              url={`/session?duration=${duration}&location=${location}`}
+              text="Start"
+              justifyContent="flex-end"
+              onClick={null}
+              type={"button"}
+            />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
 
