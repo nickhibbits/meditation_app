@@ -17,7 +17,7 @@ export const handler = NextAuth({
 
           if (!user) {
             client?.close();
-            // throw new Error("No user found!");
+            console.log("No user found!");
             return null;
           }
 
@@ -26,7 +26,7 @@ export const handler = NextAuth({
 
           if (!isValid) {
             client?.close();
-            // throw new Error("Could not verify user credentials");
+            console.log("Could not verify user credentials");
             return null;
           }
 
