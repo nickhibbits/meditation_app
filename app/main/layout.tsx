@@ -1,37 +1,19 @@
-"use client";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 import NavBar from "@/components/Navbar";
-import Providers from "@/components/Providers";
-import { getSession } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
 
-function MainLayout({ children }: { children: React.ReactNode }) {
-  const [session, setSession] = useState<any>(null);
-  const [name, setName] = useState<any>(null);
-  const router = useRouter();
+async function MainLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession().then((res) => res);
 
-  useEffect(() => {
-    getSession().then((session) => {
-      console.log("session", session);
-      if (!session) {
-        console.log("no session, something went wrong");
-        router.push("/");
-      }
-
-      setSession(session);
-      setName(session?.user?.name);
-    });
-  }, []);
+  if (!session) {
+    redirect("/auth/signin");
+  }
 
   return (
     <>
-      <Providers session={session}>
-        <>
-          <NavBar user={name} />
-          {children}
-        </>
-      </Providers>
+      <NavBar user={session?.user?.name} />
+      {children}
     </>
   );
 }

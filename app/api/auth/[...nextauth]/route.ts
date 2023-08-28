@@ -1,8 +1,9 @@
 import { connnectToDb } from "@/lib/db";
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const handler = NextAuth({
+export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
@@ -38,6 +39,8 @@ export const handler = NextAuth({
       },
     }),
   ],
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
