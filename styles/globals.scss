@@ -56,7 +56,7 @@ h1 {
 
 .container {
   position: relative;
-  height: 100dvh;
+  height: calc(100dvh - variables.$size-38);
   max-width: calc(100% - 3rem);
   margin-inline: auto;
 
