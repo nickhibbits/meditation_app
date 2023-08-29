@@ -7,8 +7,6 @@ import Button from "@/components/Button";
 import Background from "@/components/Background";
 
 function Session() {
-  // Redirect if NOT auth
-
   const params = useSearchParams();
   const duration = params.get("duration");
   const location = params.get("location");

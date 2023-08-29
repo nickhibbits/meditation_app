@@ -1,21 +1,16 @@
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 
+import AuthCheck from "@/components/AuthCheck";
 import NavBar from "@/components/Navbar";
 
-async function MainLayout({ children }: { children: React.ReactNode }) {
+async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession().then((res) => res);
-
-  if (!session) {
-    redirect("/auth/signin");
-  }
-
   return (
-    <>
+    <AuthCheck>
       <NavBar user={session?.user?.name} />
       {children}
-    </>
+    </AuthCheck>
   );
 }
 
-export default MainLayout;
+export default DashboardLayout;

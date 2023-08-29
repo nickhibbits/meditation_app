@@ -12,7 +12,6 @@ import styles from "@/styles/pages/SessionOptions.module.scss";
 function SessionOptions() {
   const [duration, setDuration] = useState("1");
   const [location, setLocation] = useState<string | null>(null);
-  const { data } = useSession();
 
   const handleUpdateDuration = (minutes: string) => {
     setDuration(minutes);
@@ -42,7 +41,7 @@ function SessionOptions() {
             type={"button"}
           />
           <Button
-            url={`/session?duration=${duration}&location=${location}`}
+            url={`/session/start?duration=${duration}&location=${location}`}
             text="Start"
             justifyContent="flex-end"
             onClick={null}
