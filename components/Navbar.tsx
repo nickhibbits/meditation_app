@@ -13,9 +13,11 @@ function NavBar({ user }: { user: any }) {
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.user}>{user}</div>
-      <div className={styles.logout} onClick={() => handleSignOut()}>
-        logout
+      <div className={styles.nav_options_wrapper}>
+        <li className={styles.user}>{user}</li>
+        <li className={styles.logout} onClick={() => handleSignOut()}>
+          logout
+        </li>
       </div>
     </nav>
   );

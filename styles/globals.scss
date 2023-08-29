@@ -56,9 +56,13 @@ h1 {
 
 .container {
   position: relative;
-  height: calc(100dvh - variables.$size-38);
+  height: 100dvh;
   max-width: calc(100% - 3rem);
   margin-inline: auto;
+
+  &_nav {
+    height: calc(100dvh - variables.$size-38);
+  }
 
   @include mediaQueries.tablet {
     max-width: calc(100% - 10rem);

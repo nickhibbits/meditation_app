@@ -1,15 +1,35 @@
 @use "@/styles/variables.scss";
+@use "@/styles/mixins/mediaQueries.scss";
 
 .nav {
   display: flex;
-  gap: variables.$size-8;
-  justify-content: flex-end;
   align-items: center;
-  padding-right: variables.$size-20;
   border-bottom: solid 1px rgba(variables.$clr-neutral-100, variables.$op-half);
   height: variables.$size-38;
+
+  &_options_wrapper {
+    display: flex;
+    gap: variables.$size-8;
+    min-width: calc(100% - 3rem);
+    margin-inline: auto;
+
+    @include mediaQueries.tablet {
+      min-width: calc(100% - 10rem);
+    }
+
+    @include mediaQueries.desktop {
+      min-width: calc(100% - 25rem);
+    }
+
+    @include mediaQueries.large-screen {
+      min-width: calc(100% - 35rem);
+    }
+  }
 }
 
 .logout {
   opacity: variables.$op-half;
+  &:hover {
+    cursor: pointer;
+  }
 }
