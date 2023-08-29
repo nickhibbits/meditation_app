@@ -24,12 +24,15 @@
     @include mediaQueries.large-screen {
       min-width: calc(100% - 35rem);
     }
+
+    li {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
 .logout {
   opacity: variables.$op-half;
-  &:hover {
-    cursor: pointer;
-  }
 }
