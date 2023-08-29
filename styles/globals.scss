@@ -15,8 +15,14 @@
 }
 
 body {
-  background: variables.$clr-neutral-900;
-  color: variables.$clr-neutral-100;
+  // background: variables.$clr-neutral-900;
+  background: rgb(245, 205, 167);
+  background: linear-gradient(
+    315deg,
+    variables.$clr-bold-100 0%,
+    variables.$clr-primary-200 100%
+  );
+  color: variables.$clr-neutral-900;
   overflow: hidden;
 }
 

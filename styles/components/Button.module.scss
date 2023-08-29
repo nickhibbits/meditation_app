@@ -5,21 +5,68 @@
 
   a,
   .button {
-    outline: solid 2px variables.$clr-neutral-100;
-    padding: variables.$padding-1 variables.$padding-2;
-    border-radius: variables.$br-1;
-    font-size: variables.$fs-400;
-    color: variables.$clr-neutral-100;
-    text-decoration: none;
-    min-width: 10rem;
-    transition: all 0.2s;
-    z-index: 1;
+    background-color: transparent;
+    color: darken(variables.$clr-neutral-900, 10%);
 
     &:hover {
-      background-color: variables.$clr-neutral-100;
-      color: variables.$clr-neutral-900;
-      outline: solid 2px variables.$clr-neutral-100;
-      cursor: pointer;
+      background-color: transparent;
+      box-shadow: none;
+      color: variables.$clr-neutral-100;
     }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 3px solid darken(variables.$clr-neutral-900, 10%);
+      transition: opacity 0.3s, border 0.3s;
+    }
+
+    &:hover::before {
+      opacity: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: 3px solid variables.$clr-neutral-100;
+      opacity: 0;
+      z-index: -1;
+      transform: scaleX(1.1) scaleY(1.3);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: scaleX(1) scaleY(1);
+    }
+    // outline: solid 2px variables.$clr-neutral-500;
+    // padding: variables.$padding-1 variables.$padding-2;
+    // border-radius: variables.$br-1;
+    // font-size: variables.$fs-400;
+    // color: variables.$clr-neutral-900;
+    // text-decoration: none;
+    // min-width: 10rem;
+    // transition: all 0.3s;
+    // z-index: 1;
+
+    // &:hover {
+    //   background: linear-gradient(
+    //     325deg,
+    //     variables.$clr-neutral-300 20%,
+    //     variables.$clr-neutral-100 100%
+    //   );
+    //   color: variables.$clr-neutral-900;
+    //   outline: solid 2px variables.$clr-neutral-300;
+    //   cursor: pointer;
+    // }
   }
 }
