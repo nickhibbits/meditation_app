@@ -1,28 +1,40 @@
 import { useTimer } from "react-timer-hook";
+import { useSession } from "next-auth/react";
 
 import Button from "@/components/Button";
 
 import styles from "@/styles/components/Timer.module.scss";
 
-function Timer({ expiryTimestamp }: { expiryTimestamp: Date }) {
-  const saveTime = async (mintues: number) => {
+function Timer({
+  expiryTimestamp,
+  duration,
+}: {
+  expiryTimestamp: Date;
+  duration: number;
+}) {
+  const { data: session } = useSession();
+
+  const saveTime = async (time: number) => {
+    console.log("time", time);
     const res = await fetch("/api/user/update", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        minutes: minutes,
+        username: session?.user?.name,
+        time: time,
       }),
     }).then((res) => res.json());
 
-    console.log("res", res);
+    // if time update successful, display total time meditated, then return to home screen
+    // create toast for errors, harmonize error handling here and in auth flow
   };
 
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
     expiryTimestamp,
     autoStart: false,
-    onExpire: () => saveTime(minutes),
+    onExpire: () => saveTime(duration),
   });
 
   return (

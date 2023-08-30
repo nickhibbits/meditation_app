@@ -1,22 +1,43 @@
 import { connnectToDb } from "@/lib/db";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   const _req = await req.json();
   const { username, time: newTime } = _req;
 
-  const client = await connnectToDb();
+  try {
+    const client = await connnectToDb();
 
-  const usersCollection = client?.db().collection("users");
+    const db = client?.db();
+    const usersCollection = db?.collection("users");
 
-  const user = await usersCollection?.findOne({
-    username: username,
-  });
+    const user = await usersCollection?.findOne({
+      username: username,
+    });
 
-  const userTotalTime = user?.totalTime;
+    const userTotalTime = user?.time;
 
-  const updatedTime = !userTotalTime ? newTime : userTotalTime + newTime;
+    const updatedTime = !userTotalTime ? newTime : userTotalTime + newTime;
 
-  // add updated time to user object
-  // handle response
+    const res = await usersCollection?.updateOne(
+      { username: user?.username },
+      { $set: { time: updatedTime } },
+      { upsert: false }
+    );
+
+    if (res?.acknowledged) {
+      return NextResponse.json({
+        status: 200,
+        response: res,
+      });
+    }
+
+    throw new Error(`${res}`);
+  } catch (error) {
+    console.log("❌ ERROR", error);
+    return NextResponse.json({
+      status: 500,
+      response: error,
+    });
+  }
 }

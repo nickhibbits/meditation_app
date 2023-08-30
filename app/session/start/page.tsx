@@ -24,7 +24,7 @@ function Session() {
     <main className="container flex flex_column flex_center">
       <Background imgSrc={location} />
       <div className={styles.timer_wrapper}>
-        <Timer expiryTimestamp={expiryTimestamp} />
+        <Timer expiryTimestamp={expiryTimestamp} duration={_duration} />
         <Button
           url="/"
           text="Exit"
