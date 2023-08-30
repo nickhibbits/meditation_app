@@ -26,7 +26,7 @@ $option-width: 11rem;
   padding: variables.$padding-4;
   backdrop-filter: blur(2px);
   width: 100%;
-  border: solid 2px variables.$clr-neutral-100;
+  outline: solid 2px variables.$clr-neutral-100;
 }
 
 .options_wrapper {

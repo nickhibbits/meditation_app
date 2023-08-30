@@ -6,6 +6,8 @@ import Timer from "@/components/Timer";
 import Button from "@/components/Button";
 import Background from "@/components/Background";
 
+import styles from "@/styles/components/Timer.module.scss";
+
 function Session() {
   const params = useSearchParams();
   const duration = params.get("duration");
@@ -21,14 +23,16 @@ function Session() {
   return (
     <main className="container flex flex_column flex_center">
       <Background imgSrc={location} />
-      <Timer expiryTimestamp={expiryTimestamp} />
-      <Button
-        url="/"
-        text="Exit"
-        justifyContent="center"
-        onClick={null}
-        type={"button"}
-      />
+      <div className={styles.timer_wrapper}>
+        <Timer expiryTimestamp={expiryTimestamp} />
+        <Button
+          url="/"
+          text="Exit"
+          justifyContent="center"
+          onClick={null}
+          type={"button"}
+        />
+      </div>
     </main>
   );
 }
