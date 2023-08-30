@@ -25,14 +25,14 @@ export async function POST(req: NextRequest) {
       { upsert: false }
     );
 
-    if (res?.acknowledged) {
-      return NextResponse.json({
-        status: 200,
-        response: res,
-      });
+    if (!res?.acknowledged) {
+      throw new Error(`${res}`);
     }
 
-    throw new Error(`${res}`);
+    return NextResponse.json({
+      status: 200,
+      response: res,
+    });
   } catch (error) {
     console.log("❌ ERROR", error);
     return NextResponse.json({
