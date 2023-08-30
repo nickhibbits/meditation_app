@@ -26,8 +26,10 @@
     }
 
     li {
+      transition: color 0.2s;
       &:hover {
         cursor: pointer;
+        color: variables.$clr-neutral-900;
       }
     }
   }

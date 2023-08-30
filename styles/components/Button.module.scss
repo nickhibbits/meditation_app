@@ -1,17 +1,22 @@
 @use "@/styles/variables.scss";
 
 .button_component {
-  width: 100%;
+  min-width: 10rem;
+  position: relative;
+  z-index: 2;
 
   a,
   .button {
     background-color: transparent;
-    color: darken(variables.$clr-neutral-900, 10%);
+    color: darken(variables.$clr-neutral-100, 10%);
+    padding: variables.$padding-1 variables.$padding-2;
+    margin-inline: auto;
 
     &:hover {
       background-color: transparent;
       box-shadow: none;
-      color: variables.$clr-neutral-100;
+      color: variables.$clr-primary-100;
+      cursor: pointer;
     }
 
     &::before {
@@ -21,8 +26,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: 3px solid darken(variables.$clr-neutral-900, 10%);
+      border: 2px solid darken(variables.$clr-neutral-100, 10%);
       transition: opacity 0.3s, border 0.3s;
+      border-radius: variables.$br-1;
     }
 
     &:hover::before {
@@ -37,11 +43,12 @@
       width: 100%;
       height: 100%;
       background-color: transparent;
-      border: 3px solid variables.$clr-neutral-100;
+      border: 2px solid variables.$clr-primary-100;
       opacity: 0;
       z-index: -1;
-      transform: scaleX(1.1) scaleY(1.3);
-      transition: transform 0.3s, opacity 0.3s;
+      transform: scaleX(1.3) scaleY(1.5);
+      transition: transform 0.5s, opacity 0.3s;
+      border-radius: variables.$br-1;
     }
 
     &:hover::after {
@@ -50,23 +57,11 @@
     }
     // outline: solid 2px variables.$clr-neutral-500;
     // padding: variables.$padding-1 variables.$padding-2;
-    // border-radius: variables.$br-1;
     // font-size: variables.$fs-400;
     // color: variables.$clr-neutral-900;
     // text-decoration: none;
     // min-width: 10rem;
     // transition: all 0.3s;
     // z-index: 1;
-
-    // &:hover {
-    //   background: linear-gradient(
-    //     325deg,
-    //     variables.$clr-neutral-300 20%,
-    //     variables.$clr-neutral-100 100%
-    //   );
-    //   color: variables.$clr-neutral-900;
-    //   outline: solid 2px variables.$clr-neutral-300;
-    //   cursor: pointer;
-    // }
   }
 }

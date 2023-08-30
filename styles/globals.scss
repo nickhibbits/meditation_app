@@ -20,9 +20,9 @@ body {
   background: linear-gradient(
     315deg,
     variables.$clr-bold-100 0%,
-    variables.$clr-primary-200 100%
+    variables.$clr-primary-300 100%
   );
-  color: variables.$clr-neutral-900;
+  color: variables.$clr-neutral-100;
   overflow: hidden;
 }
 
