@@ -1,0 +1,22 @@
+@use "@/styles/variables.scss";
+@use "@/styles/mixins/mediaQueries.scss";
+
+.info {
+  border: solid 1px variables.$clr-neutral-100;
+  width: clamp(18rem, 30rem, 60%);
+  justify-content: space-evenly;
+  padding: variables.$padding-3 variables.$padding-4;
+  border-radius: variables.$br-1;
+
+  @include mediaQueries.desktop {
+    font-size: variables.$fs-400;
+  }
+
+  &_item {
+    align-items: center;
+    width: 50%;
+    .label {
+      font-weight: variables.$fw-700;
+    }
+  }
+}
