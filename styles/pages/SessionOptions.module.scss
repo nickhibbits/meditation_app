@@ -1,5 +1,6 @@
 @use "@/styles/variables";
 @use "@/styles/mixins/mediaQueries.scss";
+@use "@/styles/mixins/blur.scss";
 
 $selector-height: 9rem;
 $option-width: 11rem;
@@ -21,12 +22,10 @@ $option-width: 11rem;
 }
 
 .option_container {
-  background-color: rgba(variables.$clr-neutral-900, 0.3);
+  width: 100%;
   border-radius: variables.$br-2;
   padding: variables.$padding-4;
-  backdrop-filter: blur(2px);
-  width: 100%;
-  outline: solid 2px variables.$clr-neutral-100;
+  @include blur.bgblur(10px);
 }
 
 .options_wrapper {

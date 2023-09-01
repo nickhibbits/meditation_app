@@ -1,12 +1,13 @@
 @use "@/styles/variables";
 @use "@/styles/mixins/mediaQueries";
+@use "@/styles/mixins/blur";
 
 .form_wrapper {
   width: 100%;
 }
 
 .login_form {
-  outline: solid 2px variables.$clr-neutral-100;
+  @include blur.bgblur(10px);
   width: calc(100% - 2rem);
   margin-inline: auto;
   padding: 2rem;
@@ -20,6 +21,11 @@
 
     .form_label {
       margin-bottom: 0.2rem;
+    }
+
+    input {
+      border-radius: variables.$br-1;
+      border: none;
     }
   }
 
