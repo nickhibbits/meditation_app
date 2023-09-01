@@ -19,13 +19,7 @@ function SessionOption({
     <div className={`flex flex_center ${styles.session_option_component}`}>
       {title === "Location" ? (
         <div className={styles.location_selector_wrapper}>
-          <motion.div
-            className={styles.middle_circle}
-            animate={{ ...enterAnimation.animate, ...spinAnimation.animate }}
-            transition={enterAnimation.transition}
-          >
-            <LocationSelector update={updateLocation} />
-          </motion.div>
+          <LocationSelector update={updateLocation} />
         </div>
       ) : (
         <div className={styles.selector_wrapper}>

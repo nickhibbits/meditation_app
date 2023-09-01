@@ -46,8 +46,9 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
         redirect: false,
         username: usernameRef.current.value,
         password: passwordRef.current.value,
-      }).then(({ ok }) => {
-        if (ok) {
+      }).then((res) => {
+        // console.log("res", res);
+        if (res?.ok) {
           router.push("/");
         } else {
           console.log("ERROR");

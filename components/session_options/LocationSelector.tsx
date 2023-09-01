@@ -1,27 +1,63 @@
-import { motion } from "framer-motion";
-import { enterAnimation } from "@/lib/animations";
+// import { motion } from "framer-motion";
+// import { enterAnimation } from "@/lib/animations";
+import ocean_1 from "@/public/images/ocean/ocean_2.jpg";
+import jungle_1 from "@/public/images/jungle/jungle_1-min.jpg";
+import mountains_1 from "@/public/images/mountains/mountains_1.jpg";
 
 import styles from "@/styles/pages/SessionOptions.module.scss";
+import Image from "next/image";
 
 const options = ["Ocean", "Mountains", "Jungle"];
 
 function LocationSelector({ update }: { update: (value: string) => void }) {
   return (
-    <>
-      {options.map((option, i) => {
-        return (
-          <motion.li
-            animate={{ width: [50, i === 1 ? 201 : 179] }}
-            transition={enterAnimation.transition}
-            className={styles.option}
-            key={i}
-            onClick={(e) => update(option)}
-          >
-            {option}
-          </motion.li>
-        );
+    <div className={styles.option}>
+      {options.map((option) => {
+        switch (option) {
+          case "Ocean":
+            return (
+              <div className={`flex flex_center${styles.option_image_wrapper}`}>
+                {option}
+                <Image
+                  src={ocean_1}
+                  className={styles.option_image}
+                  alt="ocean"
+                  width={100}
+                  height={100}
+                />
+              </div>
+            );
+
+          case "Mountains":
+            return (
+              <div className={`flex flex_center${styles.option_image_wrapper}`}>
+                {option}
+                <Image
+                  src={mountains_1}
+                  className={styles.option_image}
+                  alt="ocean"
+                  width={100}
+                  height={100}
+                />
+              </div>
+            );
+
+          case "Jungle":
+            return (
+              <div className={`flex flex_center${styles.option_image_wrapper}`}>
+                {option}
+                <Image
+                  src={jungle_1}
+                  className={styles.option_image}
+                  alt="ocean"
+                  width={100}
+                  height={100}
+                />
+              </div>
+            );
+        }
       })}
-    </>
+    </div>
   );
 }
 
