@@ -22,6 +22,7 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
       body: JSON.stringify({
         username: usernameRef.current?.value,
         password: passwordRef.current?.value,
+        confirmPassword: confirmPasswordRef?.current?.value,
       }),
     }).then((res) => res.json());
 

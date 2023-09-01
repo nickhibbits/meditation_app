@@ -8,12 +8,17 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
   console.log("body", data);
 
-  const { username, password } = data;
+  const { username, password, confirmPassword } = data;
 
   try {
-    if (!username || !password || password.trim().length < 7) {
+    if (
+      !username ||
+      !password ||
+      password.trim().length < 7 ||
+      password !== confirmPassword
+    ) {
       throw new Error(
-        "Invalid input -- password should also be at least 7 characters long."
+        "Ensure password is at least 7 characters long and matches in both fields."
       );
     }
 
@@ -45,12 +50,12 @@ export async function POST(req: NextRequest) {
   } catch (error: any) {
     console.log("❌ ERROR", error);
 
-    const response = {
+    const _error = {
       status: 500,
       message: error.message,
       data: null,
     };
 
-    return NextResponse.json(response);
+    return NextResponse.json(_error);
   }
 }
