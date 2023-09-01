@@ -8,8 +8,8 @@ function DurationSelector({ update }: { update: (value: any) => void }) {
         className={styles.rs_range}
         type="range"
         value="0"
-        min="0"
-        max="200"
+        min="1"
+        max="60"
       />
     </div>
   );
