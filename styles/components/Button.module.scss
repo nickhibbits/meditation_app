@@ -9,7 +9,7 @@
   .button {
     background-color: transparent;
     color: darken(variables.$clr-neutral-100, 10%);
-    padding: variables.$padding-1 variables.$padding-2;
+    padding: variables.$padding-2 variables.$padding-3;
     margin-inline: auto;
 
     &:hover {
