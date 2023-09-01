@@ -1,16 +1,17 @@
-const numbers = Array.from({ length: 60 }, (_, index) => index + 1);
+import styles from "@/styles/components/DurationSelector.module.scss";
 
 function DurationSelector({ update }: { update: (value: any) => void }) {
   return (
-    <select onChange={(e) => update(e.target.value)}>
-      {[...numbers].map((number, i) => {
-        return (
-          <option key={i} value={number}>
-            {number}
-          </option>
-        );
-      })}
-    </select>
+    <div className={styles.range_slider}>
+      <span className={styles.rs_label}>0</span>
+      <input
+        className={styles.rs_range}
+        type="range"
+        value="0"
+        min="0"
+        max="200"
+      />
+    </div>
   );
 }
 

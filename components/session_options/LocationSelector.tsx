@@ -11,7 +11,7 @@ const options = ["Ocean", "Mountains", "Jungle"];
 
 function LocationSelector({ update }: { update: (value: string) => void }) {
   return (
-    <div className={styles.option}>
+    <>
       {options.map((option) => {
         switch (option) {
           case "Ocean":
@@ -24,6 +24,7 @@ function LocationSelector({ update }: { update: (value: string) => void }) {
                   alt="ocean"
                   width={100}
                   height={100}
+                  onClick={() => update(option)}
                 />
               </div>
             );
@@ -38,6 +39,7 @@ function LocationSelector({ update }: { update: (value: string) => void }) {
                   alt="ocean"
                   width={100}
                   height={100}
+                  onClick={() => update(option)}
                 />
               </div>
             );
@@ -52,12 +54,13 @@ function LocationSelector({ update }: { update: (value: string) => void }) {
                   alt="ocean"
                   width={100}
                   height={100}
+                  onClick={() => update(option)}
                 />
               </div>
             );
         }
       })}
-    </div>
+    </>
   );
 }
 

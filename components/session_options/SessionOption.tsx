@@ -23,9 +23,7 @@ function SessionOption({
         </div>
       ) : (
         <div className={styles.selector_wrapper}>
-          <div className={styles.middle_circle}>
-            <DurationSelector update={updateDuration} />
-          </div>
+          <DurationSelector update={updateDuration} />
         </div>
       )}
     </div>
