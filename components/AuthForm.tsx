@@ -14,9 +14,7 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
   const usernameRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const handleSignup = async (e: any) => {
-    e.preventDefault();
-
+  const handleSignup = async () => {
     const res = await fetch("/api/auth/signup", {
       method: "POST",
       body: JSON.stringify({
@@ -26,7 +24,7 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
       }),
     }).then((res) => res.json());
 
-    console.log("🏓 res", res);
+    // console.log("🏓 res", res);
 
     if (res.status !== 200) {
       alert(res.message);
@@ -38,8 +36,8 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
     }
   };
 
-  const handleSignin = async (e: any) => {
-    e.preventDefault();
+  const handleSignin = async () => {
+    // console.log("🎃 handleSignin");
 
     if (usernameRef.current && passwordRef.current) {
       await signIn("credentials", {
@@ -59,14 +57,7 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
 
   return (
     <div className={classes.form_wrapper}>
-      <form
-        className={classes.login_form}
-        onSubmit={
-          formType === "signup"
-            ? (e) => handleSignup(e)
-            : (e) => handleSignin(e)
-        }
-      >
+      <form className={classes.login_form}>
         <div className={classes.input_wrapper}>
           <label htmlFor="" className={classes.form_label}>
             Username
@@ -99,16 +90,16 @@ function AuthForm({ formType }: { formType: "signin" | "signup" }) {
         <div className={`flex ${classes.button_wrapper}`}>
           <Button
             text={formType === "signin" ? "Login" : "Create"}
-            onClick={null}
             url={""}
+            onClick={formType === "signin" ? handleSignin : handleSignup}
             justifyContent="flex-start"
             type="submit"
           />
           {formType !== "signup" ? (
             <Button
               text={"Create Account"}
-              onClick={() => router.push("/auth/signup")}
-              url={""}
+              onClick={null}
+              url={"/auth/signup"}
               justifyContent="flex-end"
               type="button"
             />
