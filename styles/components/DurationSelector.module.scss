@@ -1,23 +1,25 @@
 .range_slider {
   // border: solid 2px red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rs_label {
-  position: relative;
-  transform-origin: center center;
-  display: block;
+  // position: relative;
+  // transform-origin: center center;
+  // display: block;
   width: 98px;
   height: 98px;
   background: transparent;
   border-radius: 50%;
-  line-height: 30px;
+  // line-height: 30px;
   text-align: center;
   font-weight: bold;
   padding-top: 22px;
   box-sizing: border-box;
   border: 2px solid #fff;
-  margin-top: 20px;
-  margin-left: -38px;
+  // margin-top: 20px;
   left: attr(value);
   color: #fff;
   font-style: normal;
@@ -25,7 +27,7 @@
   line-height: normal;
   font-size: 36px;
   &::after {
-    content: "kg";
+    content: "m";
     display: block;
     font-size: 20px;
     letter-spacing: 0.07em;
