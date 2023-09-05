@@ -1,28 +1,14 @@
 .background_image {
   position: absolute;
-  top: 0;
-  left: 0;
+  height: 100dvh;
+  width: 100dvw;
 }
 
 .video {
-  object-fit: cover;
-  height: 100%;
-  width: 100%;
-
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-
-  &_wrapper {
-    border: solid 2px red;
-    position: relative;
-    width: 100dvw;
-    height: 100dvh;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-  }
+  // height: 100%;
+  // width: 100%;
+  height: 100dvh;
+  width: 100dvw;
+  // border: solid 2px red;
 }
