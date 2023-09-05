@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import Button from "@/components/Button";
 
 import styles from "@/styles/components/Timer.module.scss";
+import { useRouter } from "next/navigation";
 
 function Timer({
   expiryTimestamp,
@@ -13,9 +14,11 @@ function Timer({
   duration: number;
 }) {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const saveTime = async (time: number) => {
-    console.log("time", time);
+    router.push("/");
+
     const res = await fetch("/api/user/update", {
       method: "POST",
       headers: {
@@ -27,13 +30,17 @@ function Timer({
       }),
     }).then((res) => res.json());
 
+    if (res.status !== 200) {
+      alert(res.response);
+    }
+
     // if time update successful, display total time meditated, then return to home screen
     // create toast for errors, harmonize error handling here and in auth flow
   };
 
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
     expiryTimestamp,
-    autoStart: false,
+    autoStart: true,
     onExpire: () => saveTime(duration),
   });
 

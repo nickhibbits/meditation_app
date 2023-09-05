@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useSession } from "next-auth/react";
 
 import Button from "@/components/Button";
 import Options from "@/components/Options";
@@ -18,7 +17,7 @@ function SessionOptions() {
   };
 
   const handleUpdateLocation = (location: string) => {
-    console.log("location", location);
+    // console.log("location", location);
     setLocation(location);
   };
 
