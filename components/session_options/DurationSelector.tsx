@@ -9,14 +9,17 @@ function DurationSelector({ update }: { update: (value: any) => void }) {
 
   function handleChange() {
     console.log("timeRef", timeRef.current?.value);
+    update(timeRef.current?.value);
   }
   return (
     <div className={styles.range_slider}>
-      <span className={styles.rs_label}>0</span>
+      <span className={styles.rs_label}>
+        {!timeRef.current ? 1 : timeRef.current?.value}
+      </span>
       <input
         className={styles.rs_range}
         type="range"
-        defaultValue="0"
+        defaultValue="1"
         min="1"
         max="60"
         onChange={handleChange}
