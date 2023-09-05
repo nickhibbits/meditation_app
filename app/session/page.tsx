@@ -18,6 +18,7 @@ function SessionOptions() {
   };
 
   const handleUpdateLocation = (location: string) => {
+    console.log("location", location);
     setLocation(location);
   };
 
