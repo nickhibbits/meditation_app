@@ -1,4 +1,4 @@
-import { countryRoadId, mountainId, waterId } from "@/lib/video";
+import { jungleId, mountainId, waterId } from "@/lib/video";
 
 import Video from "@/components/Video";
 
@@ -10,7 +10,7 @@ function Background({ imgSrc }: { imgSrc: string | null }) {
   } else if (imgSrc === "Mountains") {
     return <Video videoId={mountainId} />;
   } else {
-    return <Video videoId={countryRoadId} />;
+    return <Video videoId={jungleId} />;
   }
 }
 

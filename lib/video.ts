@@ -2,6 +2,6 @@
 
 const waterId = "cfdf635nth0itruz60sd";
 const mountainId = "fwiblamg8tuev9wm9b9j";
-const countryRoadId = "re40sdcjfuzkwvdtxa8r";
+const jungleId = "jmphpyezy599r4ovurmd";
 
-export { waterId, mountainId, countryRoadId };
+export { waterId, mountainId, jungleId };
