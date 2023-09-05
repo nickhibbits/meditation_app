@@ -3,29 +3,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 }
 
 .rs_label {
-  // position: relative;
-  // transform-origin: center center;
-  // display: block;
   width: 98px;
-  height: 98px;
+  height: 250px;
   background: transparent;
   border-radius: 50%;
-  // line-height: 30px;
   text-align: center;
   font-weight: bold;
-  padding-top: 22px;
   box-sizing: border-box;
-  border: 2px solid #fff;
-  // margin-top: 20px;
   left: attr(value);
   color: #fff;
   font-style: normal;
   font-weight: normal;
   line-height: normal;
-  font-size: 36px;
+  font-size: 9rem;
   &::after {
     content: "m";
     display: block;
@@ -36,7 +30,6 @@
 }
 
 .rs_range {
-  margin-top: 29px;
   width: 350px;
   -webkit-appearance: none;
   &:focus {

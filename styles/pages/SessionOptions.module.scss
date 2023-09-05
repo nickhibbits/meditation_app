@@ -8,37 +8,33 @@ $selector-height: 9rem;
   width: 100%;
   border-radius: variables.$br-2;
   padding: variables.$padding-4;
+  min-height: 32rem;
   @include blur.bgblur(10px);
 }
 
 .options_wrapper {
   z-index: 1;
-
+  grid-template-rows: 50% 50%;
+  grid-template-rows: 100%;
   margin-bottom: 2rem;
-  justify-content: space-between;
   color: variables.$clr-neutral-100;
+  height: 84%;
 
   @media (min-width: 915px) {
-    flex-direction: row;
+    grid-template-columns: 50% 50%;
+
+    // flex-direction: row;
   }
 }
 
 .session_option_wrapper {
   min-width: 18rem;
+  height: 100%;
 }
 
 .session_option_component {
-  margin: 2rem;
-
-  .middle_circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: $selector-height;
-    width: $selector-height;
-    border-radius: 50%;
-    border: solid 2px variables.$clr-neutral-100;
-  }
+  justify-items: center;
+  height: 100%;
 
   .location_selector_wrapper {
     position: relative;

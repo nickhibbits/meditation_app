@@ -12,11 +12,14 @@ const options = ["Ocean", "Mountains", "Jungle"];
 function LocationSelector({ update }: { update: (value: string) => void }) {
   return (
     <>
-      {options.map((option) => {
+      {options.map((option, i) => {
         switch (option) {
           case "Ocean":
             return (
-              <div className={`flex flex_center${styles.option_image_wrapper}`}>
+              <div
+                className={`flex flex_center${styles.option_image_wrapper}`}
+                key={i}
+              >
                 {option}
                 <Image
                   src={ocean_1}
@@ -31,7 +34,10 @@ function LocationSelector({ update }: { update: (value: string) => void }) {
 
           case "Mountains":
             return (
-              <div className={`flex flex_center${styles.option_image_wrapper}`}>
+              <div
+                className={`flex flex_center${styles.option_image_wrapper}`}
+                key={i}
+              >
                 {option}
                 <Image
                   src={mountains_1}
@@ -46,7 +52,10 @@ function LocationSelector({ update }: { update: (value: string) => void }) {
 
           case "Jungle":
             return (
-              <div className={`flex flex_center${styles.option_image_wrapper}`}>
+              <div
+                className={`flex flex_center${styles.option_image_wrapper}`}
+                key={i}
+              >
                 {option}
                 <Image
                   src={jungle_1}

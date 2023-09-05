@@ -12,13 +12,10 @@ function Options({
   updateLocation: (value: string) => void;
 }) {
   return (
-    <div className={`flex flex_column ${styles.options_wrapper}`}>
+    <div className={`grid ${styles.options_wrapper}`}>
       {sessionOptions.map((sessionOption, i) => {
         return (
-          <div
-            className={`flex flex_column ${styles.session_option_wrapper}`}
-            key={i}
-          >
+          <div className={` ${styles.session_option_wrapper}`} key={i}>
             <h1 className={`flex flex_center ${styles.heading}`}>
               {sessionOption}
             </h1>
