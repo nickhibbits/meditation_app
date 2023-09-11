@@ -1,4 +1,4 @@
-## Mindful Moments Meditation App
+# Meditation App
 
 ## Table of Contents
 
@@ -9,7 +9,7 @@
 
 ## Description
 
-The Mindful Moments Meditation App is a web application designed to help users engage in meditation sessions. It allows users to set the theme/location and duration of the session, utilize a timer to start or stop the session, and create personal accounts to track their total time meditated.
+The Meditation App is a web application designed to help users engage in meditation sessions.
 
 ## Features
 
