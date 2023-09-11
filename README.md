@@ -1,15 +1,13 @@
 # Meditation App
 
+Web application built in Next.js designed to help users engage in meditation sessions.
+
 ## Table of Contents
 
 - [Description](#description)
 - [Features](#features)
 - [Technologies](#technologies)
 - [Installation](#installation)
-
-## Description
-
-The Meditation App is a web application designed to help users engage in meditation sessions.
 
 ## Features
 
@@ -24,7 +22,8 @@ The user can:
 
 This project is built using the following technologies:
 
-- Next
+- Next 13
+  - leverages server components for optimzied data fetching and rendering.
 - TypeScript
 - SCSS
 - MongoDB
