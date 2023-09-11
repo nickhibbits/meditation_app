@@ -1,14 +1,49 @@
-## Meditation App
+## Mindful Moments Meditation App
 
-Currently in development. Built in Next.js.
+## Table of Contents
 
-The user will be able to:
+- [Description](#description)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+
+## Description
+
+The Mindful Moments Meditation App is a web application designed to help users engage in meditation sessions. It allows users to set the theme/location and duration of the session, utilize a timer to start or stop the session, and create personal accounts to track their total time meditated.
+
+## Features
+
+The user can:
+
 - Engage in a meditation session.
-- Set the theme and duration of their session.
-- Utilize a timer to start or stop their session.
-- Track their total time meditated.
+- Set the theme/location and duration of the session.
+- Utilize a timer to start or stop the session.
+- Create a personal account to track their total time meditated.
 
+## Technologies
 
+This project is built using the following technologies:
 
+- Next
+- TypeScript
+- SCSS
+- MongoDB
 
+## Installation
 
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/mindful-moments.git
+```
+
+2. Set up MongoDB
+
+- [Install MongDB](https://www.mongodb.com/docs/manual/installation/).
+- Replace .env_example with .env and generate your own NEXTAUTH_SECRET by following the [NextAuth docs](https://next-auth.js.org/configuration/options#secret).
+
+3. Run the app:
+
+```bash
+npm run dev
+```
